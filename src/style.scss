@@ -24,12 +24,44 @@
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
 // never define layout that would cause effect on element ouside the scope of this component
 
-
 // component shape styles
 // .[selector-name] {
 //   ...
 // }
 
-.testClass {
-  color: $color-base-galapagos;
+.toast {
+  background-color: var(--color-base-white);
+  box-shadow: var(--shadow-box-shadow-classic);
+  padding: var(--size-scale-sml);
+  border-radius: var(--size-scale-micro);
+  border-bottom: 6px solid #c8c9c7;
+  max-width: 400px;
+  animation-name: example;
+  animation-duration: 1s;
+  position: fixed;
+  left: var(--size-scale-sml);
+  bottom: var(--size-scale-sml);
+  z-index: 1001;
+
+  .title {
+    font-weight: bold;
+  }
+
+  .message {
+  }
+}
+
+@keyframes example {
+  0% {
+    bottom: calc(var(--size-scale-sml) - 90px);
+  }
+  35% {
+    bottom: calc(var(--size-scale-sml) + 16px);
+  }
+  60% {
+    bottom: calc(var(--size-scale-sml) - 8px);
+  }
+  100% {
+    bottom: var(--size-scale-sml);
+  }
 }

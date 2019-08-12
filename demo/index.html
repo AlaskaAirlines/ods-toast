@@ -9,13 +9,13 @@
     <title>Orion Design System | ods-toast element</title>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module">
-      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-      import '@polymer/iron-demo-helpers/demo-snippet';
+      import "@polymer/iron-demo-helpers/demo-pages-shared-styles";
+      import "@polymer/iron-demo-helpers/demo-snippet";
     </script>
     <script type="module" src="../src/ods-toast.js"></script>
     <script src="../demo/alert.js"></script>
     <script type="module">
-      import '../node_modules/@polymer/iron-icons/hardware-icons.js';
+      import "../node_modules/@polymer/iron-icons/hardware-icons.js";
     </script>
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles"></style>
@@ -62,7 +62,11 @@
 
       <demo-snippet>
         <template>
-          <ods-toast cssClass="testClass">Hello World!</ods-toast>
+          <ods-toast
+            title="this is so fun"
+            message="yikes, bouncy fun is coming our way. Or should I say Bounchy fun!"
+            >Helloooooooooooooo World!</ods-toast
+          >
         </template>
       </demo-snippet>
 

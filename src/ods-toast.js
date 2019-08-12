@@ -6,9 +6,9 @@
 import { LitElement, html } from "lit-element";
 
 // Import touch detection lib
-import 'focus-visible/dist/focus-visible.min.js';
+import "focus-visible/dist/focus-visible.min.js";
 // impot the processed CSS file into the scope of the component
-import componentProperties from './tokens/componentShapeProperties-css.js';
+import componentProperties from "./tokens/componentShapeProperties-css.js";
 import styleCss from "./style-css.js";
 
 // build the component class
@@ -32,18 +32,19 @@ class OdsToast extends LitElement {
   // function to define props used within the scope of thie component
   static get properties() {
     return {
-      cssClass:   { type: String }
+      title: { type: String },
+      message: { type: String },
+      icon: { type: String }
     };
   }
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     return html`
-      ${componentProperties}
-      ${styleCss}
-
-      <div class=${this.cssClass}>
-        <slot></slot>
+      ${componentProperties} ${styleCss}
+      <div class="toast" aria-role="status">
+        <div class="title">${this.title}</div>
+        <div class="message">${this.message}</div>
       </div>
     `;
   }
