@@ -7,7 +7,7 @@ import { LitElement, html } from "lit-element";
 
 // Import touch detection lib
 import "focus-visible/dist/focus-visible.min.js";
-// impot the processed CSS file into the scope of the component
+// import the processed CSS file into the scope of the component
 import componentProperties from "./tokens/componentShapeProperties-css.js";
 import styleCss from "./style-css.js";
 
@@ -51,7 +51,7 @@ class OdsToast extends LitElement {
     if (!!this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
     }
-    this.timeoutHandle = setTimeout(this.destroy.bind(this), 4000);
+    this.timeoutHandle = setTimeout(this.destroy.bind(this), 10000);
   }
 
   // function that renders the HTML and CSS into  the scope of the component

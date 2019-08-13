@@ -37,8 +37,9 @@
   border-bottom: 6px solid #c8c9c7;
   max-width: 400px;
   animation-name: entrance;
-  animation-duration: 1s;
+  animation-duration: 10s;
   z-index: 1001;
+  margin-top: 20px;
 
   button,
   a {
@@ -57,16 +58,16 @@
 
 @keyframes entrance {
   0% {
-    margin-top: calc(var(--size-scale-sml) + 90px);
+    transform: translateY(calc(var(--size-scale-sml) + 50%));
   }
   35% {
-    margin-top: calc(var(--size-scale-sml) - 16px);
+    transform: translateY(calc(var(--size-scale-sml) - 70%));
   }
   60% {
-    margin-top: calc(var(--size-scale-sml) + 8px);
+    transform: translateY(calc(var(--size-scale-sml) + 15%));
   }
   100% {
-    margin-top: 0px;
+    transform: translateY(0%);
   }
 }
 
@@ -76,7 +77,7 @@
   }
   to {
     opacity: 0;
-    margin-left: -400px;
+    transform: translateX(-100%);
   }
 }
 
