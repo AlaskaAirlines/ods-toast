@@ -38,9 +38,6 @@
   max-width: 400px;
   animation-name: entrance;
   animation-duration: 1s;
-  position: fixed;
-  left: var(--size-scale-sml);
-  bottom: var(--size-scale-sml);
   z-index: 1001;
 
   button,
@@ -53,23 +50,23 @@
     animation-duration: 1500ms;
   }
 
-  .title {
+  .normalContent-textContainer-title {
     font-weight: bold;
   }
 }
 
 @keyframes entrance {
   0% {
-    bottom: calc(var(--size-scale-sml) - 90px);
+    margin-top: calc(var(--size-scale-sml) + 90px);
   }
   35% {
-    bottom: calc(var(--size-scale-sml) + 16px);
+    margin-top: calc(var(--size-scale-sml) - 16px);
   }
   60% {
-    bottom: calc(var(--size-scale-sml) - 8px);
+    margin-top: calc(var(--size-scale-sml) + 8px);
   }
   100% {
-    bottom: var(--size-scale-sml);
+    margin-top: 0px;
   }
 }
 
@@ -79,21 +76,21 @@
   }
   to {
     opacity: 0;
-    left: -400px;
+    margin-left: -400px;
   }
 }
 
-.normal-content {
+.normalContent {
   display: flex;
   flex-direction: row;
 
-  .icon-container,
-  .text-container,
-  .exit-container {
+  .normalContent-iconContainer,
+  .normalContent-textContainer,
+  .normalContent-exitContainer {
     padding: var(--size-scale-sml);
   }
 
-  .text-container {
+  .normalContent-textContainer {
     flex-grow: 2;
   }
 }

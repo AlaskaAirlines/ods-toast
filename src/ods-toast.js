@@ -63,21 +63,23 @@ class OdsToast extends LitElement {
         aria-role="status"
         @click=${this.setAutoDismissal.bind(this)}
       >
-        <div class="normal-content">
-          <div class="icon-container">
+        <div class="normalContent">
+          <div class="normalContent-iconContainer">
             🦁
           </div>
-          <div class="text-container">
-            <div class="title">${this.title}</div>
-            <div class="message">${this.message}</div>
+          <div class="normalContent-textContainer">
+            <div class="normalContent-textContainer-title">${this.title}</div>
+            <div class="normalContent-textContainer-message">
+              ${this.message}
+            </div>
           </div>
-          <div class="exit-container">
+          <div class="normalContent-exitContainer">
             <button @click=${this.destroy.bind(this)}>
               🦄
             </button>
           </div>
         </div>
-        <div class="action-container">
+        <div class="actionContainer">
           <slot></slot>
         </div>
       </div>
