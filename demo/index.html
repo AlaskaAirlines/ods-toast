@@ -63,8 +63,16 @@
       <demo-snippet>
         <template>
           <ods-toast title="this is the title" message="This is the message.">
-            Helloooooooooooooo World!
+            <a href="google.com">click me</a>
+            <button onclick="cool()">🐷</button>
           </ods-toast>
+          <script>
+            function cool() {
+              const toast = document.querySelector("ods-toast");
+              alert("hi");
+              toast.destroy();
+            }
+          </script>
         </template>
       </demo-snippet>
 

@@ -43,11 +43,18 @@
   bottom: var(--size-scale-sml);
   z-index: 1001;
 
-  .title {
-    font-weight: bold;
+  button,
+  a {
+    cursor: pointer;
   }
 
-  .message {
+  &.exit {
+    animation-name: exit;
+    animation-duration: 1500ms;
+  }
+
+  .title {
+    font-weight: bold;
   }
 }
 
@@ -67,4 +74,26 @@
 }
 
 @keyframes exit {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: -400px;
+  }
+}
+
+.normal-content {
+  display: flex;
+  flex-direction: row;
+
+  .icon-container,
+  .text-container,
+  .exit-container {
+    padding: var(--size-scale-sml);
+  }
+
+  .text-container {
+    flex-grow: 2;
+  }
 }
