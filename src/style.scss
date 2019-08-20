@@ -36,48 +36,15 @@
   border-radius: var(--size-scale-micro);
   border-bottom: 6px solid #c8c9c7;
   max-width: 400px;
-  animation-name: entrance;
-  animation-duration: 5s;
   z-index: 1001;
-  margin-top: 20px;
 
   button,
   a {
     cursor: pointer;
   }
 
-  &.exit {
-    animation-name: exit;
-    animation-duration: 1500ms;
-  }
-
   .normalContent-textContainer-title {
     font-weight: bold;
-  }
-}
-
-@keyframes entrance {
-  0% {
-    transform: translateY(calc(var(--size-scale-sml) + 100%));
-  }
-  35% {
-    transform: translateY(calc(var(--size-scale-sml) - 15%));
-  }
-  60% {
-    transform: translateY(calc(var(--size-scale-sml) + 8%));
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-
-@keyframes exit {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-100%);
   }
 }
 

@@ -30,6 +30,7 @@
   "main": "src/",
   "license": "Apache-2.0",
   "dependencies": {
+    "@alaskaairux/orion-icons": "^1.4.3",
     "lit-element": "^2.1.0"
   },
   "peerDependencies": {

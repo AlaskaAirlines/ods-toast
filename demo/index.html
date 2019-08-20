@@ -61,22 +61,6 @@
         </span>
       </p>
 
-      <demo-snippet>
-        <template>
-          <ods-toast title="this is the title" message="This is the message.">
-            <a href="google.com">click me</a>
-            <button onclick="cool()">🐷</button>
-          </ods-toast>
-          <script>
-            function cool() {
-              const toast = document.querySelector("ods-toast");
-              alert("hi");
-              toast.destroy();
-            }
-          </script>
-        </template>
-      </demo-snippet>
-
       <h2>Element &#60;ods-toast&#62;</h2>
 
       <pre><code>class OdsToast extends LitElement</code></pre>

@@ -15,7 +15,7 @@ import styleCss from "./style-css.js";
 class OdsToast extends LitElement {
   constructor() {
     super();
-    this.setAutoDismissal();
+    // this.setAutoDismissal();
 
     //   /*
     //     If the component requires a touch detection,
@@ -39,30 +39,11 @@ class OdsToast extends LitElement {
     };
   }
 
-  destroy() {
-    console.log(this);
-    this.shadowRoot.querySelector(".toast").classList.add("exit");
-    setTimeout(() => {
-      this.parentElement.removeChild(this);
-    }, 1500);
-  }
-
-  setAutoDismissal() {
-    if (!!this.timeoutHandle) {
-      clearTimeout(this.timeoutHandle);
-    }
-    this.timeoutHandle = setTimeout(this.destroy.bind(this), 10000);
-  }
-
-  // function that renders the HTML and CSS into  the scope of the component
+  // function that renders the HTML and CSS into the scope of the component
   render() {
     return html`
       ${componentProperties} ${styleCss}
-      <div
-        class="toast"
-        aria-role="status"
-        @click=${this.setAutoDismissal.bind(this)}
-      >
+      <div class="toast" aria-role="status">
         <div class="normalContent">
           <div class="normalContent-iconContainer">
             🦁
@@ -74,7 +55,7 @@ class OdsToast extends LitElement {
             </div>
           </div>
           <div class="normalContent-exitContainer">
-            <button @click=${this.destroy.bind(this)}>
+            <button>
               🦄
             </button>
           </div>
