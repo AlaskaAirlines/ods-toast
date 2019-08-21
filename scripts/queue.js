@@ -1,4 +1,3 @@
-//import { html } from "lit-element";
 const html = String.raw;
 
 const style = html`
@@ -98,9 +97,9 @@ export default class QueueToasts {
       currentToast.classList.add("exit");
       setTimeout(() => {
         this.container.removeChild(currentToast);
+        this.toasts.shift();
+        this.showNextToast();
       }, 1500);
-      this.toasts.shift();
-      this.showNextToast();
     }
   }
 
@@ -109,10 +108,6 @@ export default class QueueToasts {
       clearTimeout(this.timeoutHandle);
     }
     this.timeoutHandle = setTimeout(this.destroyCurrentToast.bind(this), 4000);
-  }
-
-  render() {
-    this.toasts.forEach(toast => this.container.appendChild(toast));
   }
 }
 
