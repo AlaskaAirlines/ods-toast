@@ -1,32 +1,33 @@
 //import { html } from "lit-element";
+const html = String.raw;
 
-const style = `
+const style = html`
   <style>
-  @keyframes entrance {
-    0% {
-      transform: translateY(calc(20px + 100%));
+    @keyframes entrance {
+      0% {
+        transform: translateY(calc(20px + 100%));
+      }
+      35% {
+        transform: translateY(calc(20px - 15%));
+      }
+      60% {
+        transform: translateY(calc(20px + 8%));
+      }
+      100% {
+        transform: translateY(0%);
+      }
     }
-    35% {
-      transform: translateY(calc(20px - 15%));
+
+    @keyframes exit {
+      from {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
     }
-    60% {
-      transform: translateY(calc(20px + 8%));
-    }
-    100% {
-      transform: translateY(0%);
-    }
-  }
-  
-  @keyframes exit {
-    from {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-    to {
-      opacity: 0;
-      transform: translateX(-100%);
-    }
-  }
     .toastContainer {
       max-width: 400px;
       position: fixed;
@@ -44,12 +45,11 @@ const style = `
       animation-duration: 2s;
       transform: translateY(0%);
     }
-  
+
     ods-toast.exit {
       animation-name: exit;
       animation-duration: 1500ms;
     }
-  
   </style>
 `;
 document.body.appendChild(createElementFromHTML(style));
@@ -65,7 +65,6 @@ function createElementFromHTML(htmlString) {
 export default class QueueToasts {
   constructor() {
     this.toasts = [];
-    // this.currentToast = 0;
     this.container = document.createElement("div");
     document.body.appendChild(this.container);
     this.container.className = "toastContainer";
@@ -74,6 +73,9 @@ export default class QueueToasts {
   add(title) {
     const toast = document.createElement("ods-toast");
     toast.setAttribute("title", title);
+    toast.onDestroy = this.destroyCurrentToast.bind(this);
+    toast.onClick = this.setAutoDismissal.bind(this);
+
     this.toasts.push(toast);
     if (this.toasts.length == 1) {
       this.showNextToast();
@@ -81,30 +83,32 @@ export default class QueueToasts {
   }
 
   showNextToast() {
-    console.log(this.toasts);
-    const currentToast = this.toasts[0];
     if (this.toasts.length > 0) {
-      console.log(currentToast.shadowRoot); //.querySelector(".toast"));
+      const currentToast = this.toasts[0];
       this.container.appendChild(currentToast);
       currentToast.classList.add("show");
+      this.setAutoDismissal();
+    }
+  }
+
+  destroyCurrentToast() {
+    if (this.toasts.length) {
+      const currentToast = this.toasts[0];
+      currentToast.classList.remove("show");
+      currentToast.classList.add("exit");
       setTimeout(() => {
-        currentToast.classList.remove("show");
-        currentToast.classList.add("exit");
-        setTimeout(() => {
-          this.container.removeChild(currentToast);
-        }, 1500);
-        this.toasts.shift();
-        this.showNextToast();
-      }, 4000);
+        this.container.removeChild(currentToast);
+      }, 1500);
+      this.toasts.shift();
+      this.showNextToast();
     }
   }
 
   setAutoDismissal() {
-    console.log("setting auto dismissal!");
     if (!!this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
     }
-    this.timeoutHandle = setTimeout(this.destroy.bind(this), 4000);
+    this.timeoutHandle = setTimeout(this.destroyCurrentToast.bind(this), 4000);
   }
 
   render() {
@@ -114,4 +118,4 @@ export default class QueueToasts {
 
 const toasts = new QueueToasts();
 toasts.add("1");
-//toasts.add("2");
+toasts.add("2");
