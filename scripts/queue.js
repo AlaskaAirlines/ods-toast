@@ -69,9 +69,10 @@ export default class QueueToasts {
     this.container.className = "toastContainer";
   }
 
-  add(title) {
+  add(title, message) {
     const toast = document.createElement("ods-toast");
     toast.setAttribute("title", title);
+    toast.setAttribute("message", message || "");
     toast.onDestroy = this.destroyCurrentToast.bind(this);
     toast.onClick = this.setAutoDismissal.bind(this);
 
@@ -112,5 +113,8 @@ export default class QueueToasts {
 }
 
 const toasts = new QueueToasts();
-toasts.add("1");
+toasts.add(
+  "1",
+  "ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+);
 toasts.add("2");
