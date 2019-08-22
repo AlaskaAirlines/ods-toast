@@ -1,3 +1,4 @@
+import Swipe from "./swipe";
 const html = String.raw;
 
 const style = html`
@@ -95,6 +96,7 @@ export default class QueueToasts {
       const currentToast = this.toasts[0];
       this.container.appendChild(currentToast);
       currentToast.classList.add("show");
+      new Swipe(currentToast);
       this.setAutoDismissal();
     }
   }
