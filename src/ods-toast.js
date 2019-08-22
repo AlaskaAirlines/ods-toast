@@ -10,7 +10,9 @@ import "focus-visible/dist/focus-visible.min.js";
 // import the processed CSS file into the scope of the component
 import componentProperties from "./tokens/componentShapeProperties-css.js";
 import styleCss from "./style-css.js";
+import iconProperties from "@alaskaairux/orion-icons/dist/tokens/CSSTokenProperties-css.js";
 import checkmark from "@alaskaairux/orion-icons/dist/icons/classiccheckmark_es6";
+import close from "@alaskaairux/orion-icons/dist/icons/close_es6";
 
 // build the component class
 class OdsToast extends LitElement {
@@ -21,6 +23,9 @@ class OdsToast extends LitElement {
 
     this.dom = new DOMParser().parseFromString(checkmark.svg, "text/html");
     this.checkmarksvg = this.dom.body.firstChild;
+
+    this.dom = new DOMParser().parseFromString(close.svg, "text/html");
+    this.closesvg = this.dom.body.firstChild;
     // this.setAutoDismissal();
 
     //   /*
@@ -56,7 +61,7 @@ class OdsToast extends LitElement {
   // function that renders the HTML and CSS into the scope of the component
   render() {
     return html`
-      ${componentProperties} ${styleCss}
+      ${componentProperties} ${styleCss} ${iconProperties}
       <div class="toast" aria-role="status" @click=${this.click.bind(this)}>
         <div class="normalContent">
           <div class="normalContent-iconContainer">
@@ -69,9 +74,9 @@ class OdsToast extends LitElement {
             </div>
           </div>
           <div class="normalContent-exitContainer">
-            <button @click=${this.destroy.bind(this)}>
-              🦄
-            </button>
+            <span @click=${this.destroy.bind(this)}>
+              ${this.closesvg}
+            </span>
           </div>
         </div>
         <div class="actionContainer">

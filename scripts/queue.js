@@ -27,16 +27,24 @@ const style = html`
         transform: translateX(-100%);
       }
     }
+
     .toastContainer {
       max-width: 400px;
+      width: 100%;
       position: fixed;
       bottom: 20px;
-      left: 20px;
+      left: 0;
+    }
+
+    @media screen and (min-width: 420px) {
+      .toastContainer {
+        left: 20px;
+      }
     }
 
     ods-toast {
       transform: translateY(calc(20px + 100%));
-      display: block;
+      display: inline-block;
     }
 
     ods-toast.show {
@@ -108,13 +116,13 @@ export default class QueueToasts {
     if (!!this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
     }
-    this.timeoutHandle = setTimeout(this.destroyCurrentToast.bind(this), 4000);
+    this.timeoutHandle = setTimeout(
+      this.destroyCurrentToast.bind(this),
+      400000
+    );
   }
 }
 
 const toasts = new QueueToasts();
-toasts.add(
-  "1",
-  "ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-);
+toasts.add("1", "boo wwwwwwwwwwwwwwwwwwwwwwwwwyah");
 toasts.add("2");
