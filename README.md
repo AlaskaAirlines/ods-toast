@@ -18,6 +18,10 @@ All information regarding Project Setup, Technical Details, Tests and informatio
 $ npm i @alaskaairux/ods-toast
 ```
 
+## Toaster
+
+It is recommended that you use the bundled [Toaster.js](Toaster.md) tool to display and manage toasts on a given screen.
+
 ### Design Token CSS Custom Property dependency
 
 The use of any ODS Component has a dependency on the [ODS Design Tokens (npm install)](https://www.npmjs.com/package/@alaskaairux/orion-design-tokens). See repository and API information [here](https://github.com/AlaskaAirlines/OrionDesignTokens).

@@ -83,16 +83,16 @@ export default class Toaster {
     toast.setAttribute("title", title);
     toast.setAttribute("message", message || "");
     toast.innerHTML = actionHTML || "";
-    toast.onDestroy = this.destroyCurrentToast.bind(this);
-    toast.onClick = this.setAutoDismissal.bind(this);
+    toast.onDestroy = this._destroyCurrentToast.bind(this);
+    toast.onClick = this._setAutoDismissal.bind(this);
 
     this.toasts.push(toast);
     if (this.toasts.length == 1) {
-      this.showNextToast();
+      this._showNextToast();
     }
   }
 
-  showNextToast() {
+  _showNextToast() {
     if (this.toasts.length > 0) {
       const currentToast = this.toasts[0];
       this.container.appendChild(currentToast);
@@ -101,15 +101,15 @@ export default class Toaster {
       currentToast.addEventListener("keydown", e => {
         console.log(e);
         if (e.keyCode == 27) {
-          this.destroyCurrentToast();
+          this._destroyCurrentToast();
         }
       });
-      new Swipe(currentToast, this.destroyCurrentToast.bind(this));
-      this.setAutoDismissal();
+      new Swipe(currentToast, this._destroyCurrentToast.bind(this));
+      this._setAutoDismissal();
     }
   }
 
-  destroyCurrentToast() {
+  _destroyCurrentToast() {
     console.log(this.toasts.length);
     if (this.toasts.length) {
       const currentToast = this.toasts[0];
@@ -118,28 +118,18 @@ export default class Toaster {
       setTimeout(() => {
         this.container.removeChild(currentToast);
         this.toasts.shift();
-        this.showNextToast();
+        this._showNextToast();
       }, 1500);
     }
   }
 
-  setAutoDismissal() {
+  _setAutoDismissal() {
     if (!!this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
     }
     this.timeoutHandle = setTimeout(
-      this.destroyCurrentToast.bind(this),
+      this._destroyCurrentToast.bind(this),
       this.displayTime
     );
   }
 }
-
-const toasts = new Toaster();
-setTimeout(() => {
-  toasts.add(
-    "1",
-    "you done good! way to go! dfsdfsdfsd fsdfdfs dfsdfsdfsdf sf",
-    "<button>click me</button>"
-  );
-  toasts.add("2");
-}, 1000);

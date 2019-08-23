@@ -25,6 +25,17 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
+    <script>
+      const toasts = new Toaster();
+      setTimeout(() => {
+        toasts.add(
+          "1",
+          "you done good! way to go! dfsdfsdfsd fsdfdfs dfsdfsdfsdf sf",
+          "<button>click me</button>"
+        );
+        toasts.add("2");
+      }, 1000);
+    </script>
     <div class="vertical-section-container">
       <h1>ods-toast</h1>
 
