@@ -44,8 +44,7 @@ class OdsToast extends LitElement {
   static get properties() {
     return {
       title: { type: String },
-      message: { type: String },
-      icon: { type: String }
+      message: { type: String }
     };
   }
 
@@ -61,7 +60,12 @@ class OdsToast extends LitElement {
   render() {
     return html`
       ${componentProperties} ${styleCss} ${iconProperties}
-      <div class="toast" aria-role="status" @click=${this.click.bind(this)}>
+      <div
+        class="toast"
+        aria-role="status"
+        aria-live="assertive"
+        @click=${this.click.bind(this)}
+      >
         <div class="normalContent">
           <div class="normalContent-iconContainer">
             ${this.checkmarksvg}
@@ -73,7 +77,7 @@ class OdsToast extends LitElement {
             </div>
           </div>
           <div class="normalContent-exitContainer">
-            <span @click=${this.destroy.bind(this)}>
+            <span alt="Close" @click=${this.destroy.bind(this)}>
               ${this.closesvg}
             </span>
           </div>
@@ -86,5 +90,4 @@ class OdsToast extends LitElement {
   }
 }
 
-// define the name of the custom component
 customElements.define("ods-toast", OdsToast);

@@ -68,18 +68,21 @@ const style = html`
 `;
 
 export default class Toaster {
-  constructor() {
+  constructor(displayTime) {
     this.toasts = [];
+    this.displayTime = displayTime || 8000;
     this.container = document.createElement("div");
     this.container.innerHTML = style;
+    this.container.setAttribute("aria-live", "polite");
     document.body.appendChild(this.container);
     this.container.className = "toastContainer";
   }
 
-  add(title, message) {
+  add(title, message, actionHTML) {
     const toast = document.createElement("ods-toast");
     toast.setAttribute("title", title);
     toast.setAttribute("message", message || "");
+    toast.innerHTML = actionHTML || "";
     toast.onDestroy = this.destroyCurrentToast.bind(this);
     toast.onClick = this.setAutoDismissal.bind(this);
 
@@ -95,7 +98,7 @@ export default class Toaster {
       this.container.appendChild(currentToast);
       currentToast.classList.add("show");
       currentToast.tabIndex = 0;
-      currentToast.focus();
+      //currentToast.focus();
       currentToast.addEventListener("keydown", e => {
         console.log(e);
         if (e.keyCode == 27) {
@@ -125,10 +128,19 @@ export default class Toaster {
     if (!!this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
     }
-    this.timeoutHandle = setTimeout(this.destroyCurrentToast.bind(this), 40000);
+    this.timeoutHandle = setTimeout(
+      this.destroyCurrentToast.bind(this),
+      this.displayTime
+    );
   }
 }
 
 const toasts = new Toaster();
-toasts.add("1", "you done good! way to go! dfsdfsdfsd fsdfdfs dfsdfsdfsdf sf");
-toasts.add("2");
+setTimeout(() => {
+  toasts.add(
+    "1",
+    "you done good! way to go! dfsdfsdfsd fsdfdfs dfsdfsdfsdf sf",
+    "<button>click me</button>"
+  );
+  toasts.add("2");
+}, 1000);
