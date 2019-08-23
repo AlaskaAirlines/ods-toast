@@ -1,5 +1,3 @@
-import QueueToasts from "./queue";
-
 export default class Swipe {
   constructor(toast, destroy) {
     this.destroy = destroy;

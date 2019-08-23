@@ -66,20 +66,12 @@ const style = html`
     }
   </style>
 `;
-document.body.appendChild(createElementFromHTML(style));
 
-function createElementFromHTML(htmlString) {
-  var div = document.createElement("div");
-  div.innerHTML = htmlString.trim();
-
-  // Change this to div.childNodes to support multiple top-level nodes
-  return div.firstChild;
-}
-
-export default class QueueToasts {
+export default class Toaster {
   constructor() {
     this.toasts = [];
     this.container = document.createElement("div");
+    this.container.innerHTML = style;
     document.body.appendChild(this.container);
     this.container.className = "toastContainer";
   }
@@ -102,6 +94,14 @@ export default class QueueToasts {
       const currentToast = this.toasts[0];
       this.container.appendChild(currentToast);
       currentToast.classList.add("show");
+      currentToast.tabIndex = 0;
+      currentToast.focus();
+      currentToast.addEventListener("keydown", e => {
+        console.log(e);
+        if (e.keyCode == 27) {
+          this.destroyCurrentToast();
+        }
+      });
       new Swipe(currentToast, this.destroyCurrentToast.bind(this));
       this.setAutoDismissal();
     }
@@ -125,10 +125,10 @@ export default class QueueToasts {
     if (!!this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
     }
-    this.timeoutHandle = setTimeout(this.destroyCurrentToast.bind(this), 8000);
+    this.timeoutHandle = setTimeout(this.destroyCurrentToast.bind(this), 40000);
   }
 }
 
-const toasts = new QueueToasts();
-toasts.add("1", "you done good! way to go!");
+const toasts = new Toaster();
+toasts.add("1", "you done good! way to go! dfsdfsdfsd fsdfdfs dfsdfsdfsdf sf");
 toasts.add("2");

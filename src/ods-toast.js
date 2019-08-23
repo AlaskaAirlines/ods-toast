@@ -26,7 +26,6 @@ class OdsToast extends LitElement {
 
     this.dom = new DOMParser().parseFromString(close.svg, "text/html");
     this.closesvg = this.dom.body.firstChild;
-    // this.setAutoDismissal();
 
     //   /*
     //     If the component requires a touch detection,
