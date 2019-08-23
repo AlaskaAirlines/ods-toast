@@ -96,12 +96,13 @@ export default class QueueToasts {
       const currentToast = this.toasts[0];
       this.container.appendChild(currentToast);
       currentToast.classList.add("show");
-      new Swipe(currentToast);
+      new Swipe(currentToast, this.destroyCurrentToast.bind(this));
       this.setAutoDismissal();
     }
   }
 
   destroyCurrentToast() {
+    console.log(this.toasts.length);
     if (this.toasts.length) {
       const currentToast = this.toasts[0];
       currentToast.classList.remove("show");

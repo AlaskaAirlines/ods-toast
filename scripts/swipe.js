@@ -1,7 +1,9 @@
+import QueueToasts from "./queue";
+
 export default class Swipe {
-  constructor(toast) {
+  constructor(toast, destroy) {
+    this.destroy = destroy;
     this.xDown = null;
-    this.yDown = null;
     toast.addEventListener(
       "touchstart",
       this.handleTouchStart.bind(this),
@@ -19,38 +21,26 @@ export default class Swipe {
   handleTouchStart(evt) {
     const firstTouch = this.getTouches(evt)[0];
     this.xDown = firstTouch.clientX;
-    this.yDown = firstTouch.clientY;
   }
 
   handleTouchMove(evt) {
-    if (!this.xDown || !this.yDown) {
+    if (!this.xDown) {
       return;
     }
 
     let xUp = evt.touches[0].clientX;
-    let yUp = evt.touches[0].clientY;
 
     let xDiff = this.xDown - xUp;
-    let yDiff = this.yDown - yUp;
 
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-      /*most significant*/
-      if (xDiff > 0) {
-        /* left swipe */
-        alert("WHY DID YOU LEAVE ME");
-      } else {
-        /* right swipe */
-        alert("WHY DID YOU COME BACK???");
-      }
-    } else {
-      if (yDiff > 0) {
-        /* up swipe */
-      } else {
-        /* down swipe */
-      }
+    if (xDiff > 10) {
+      /* left swipe */
+      this.destroy();
+    } else if (xDiff < -10) {
+      /* right swipe */
+      this.destroy();
     }
+
     /* reset values */
     this.xDown = null;
-    this.yDown = null;
   }
 }
