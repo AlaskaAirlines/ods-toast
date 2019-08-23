@@ -98,7 +98,6 @@ export default class Toaster {
       this.container.appendChild(currentToast);
       currentToast.classList.add("show");
       currentToast.tabIndex = 0;
-      //currentToast.focus();
       currentToast.addEventListener("keydown", e => {
         console.log(e);
         if (e.keyCode == 27) {
