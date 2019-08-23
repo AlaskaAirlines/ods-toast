@@ -58,6 +58,12 @@ const style = html`
       animation-name: exit;
       animation-duration: 1500ms;
     }
+
+    @media screen and (max-width: 420px) {
+      ods-toast {
+        width: 100%;
+      }
+    }
   </style>
 `;
 document.body.appendChild(createElementFromHTML(style));
@@ -119,13 +125,10 @@ export default class QueueToasts {
     if (!!this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
     }
-    this.timeoutHandle = setTimeout(
-      this.destroyCurrentToast.bind(this),
-      400000
-    );
+    this.timeoutHandle = setTimeout(this.destroyCurrentToast.bind(this), 8000);
   }
 }
 
 const toasts = new QueueToasts();
-toasts.add("1", "boo wwwwwwwwwwwwwwwwwwwwwwwwwyah");
+toasts.add("1", "you done good! way to go!");
 toasts.add("2");

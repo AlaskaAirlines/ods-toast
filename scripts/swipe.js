@@ -33,14 +33,9 @@ export default class Swipe {
     let xDiff = this.xDown - xUp;
 
     if (xDiff > 10) {
-      /* left swipe */
-      this.destroy();
-    } else if (xDiff < -10) {
-      /* right swipe */
       this.destroy();
     }
 
-    /* reset values */
     this.xDown = null;
   }
 }
