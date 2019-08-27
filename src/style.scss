@@ -20,8 +20,6 @@ $iconMap: (
 );
 
 @import "./node_modules/@alaskaairux/orion-icons/dist/orion-icons";
-//@import "./node_modules/@alaskaairux/orion-icons/dist/tokens/_TokenProperties.scss";
-// @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/animation";
 
 // container styles - defines the look of the outer custom componet
 // :host {
@@ -52,30 +50,30 @@ $iconMap: (
     cursor: pointer;
   }
 
-  .normalContent-textContainer-title {
+  .primaryContent-textContainer-title {
     font-weight: bold;
   }
 }
 
-.normalContent {
+.primaryContent {
   display: flex;
   flex-direction: row;
 
-  .normalContent-iconContainer,
-  .normalContent-textContainer,
-  .normalContent-exitContainer {
+  .primaryContent-iconContainer,
+  .primaryContent-textContainer,
+  .primaryContent-exitContainer {
     padding: var(--size-scale-sml);
   }
 
-  .normalContent-iconContainer {
+  .primaryContent-iconContainer {
     color: var(--color-classic-tropical);
   }
 
-  .normalContent-exitContainer {
+  .primaryContent-exitContainer {
     cursor: pointer;
   }
 
-  .normalContent-textContainer {
+  .primaryContent-textContainer {
     max-width: calc(
       100% - var(--size-icon-close-width) -
         var(--size-icon-classiccheckmark-width) - (4 * var(--size-scale-sml))
@@ -88,7 +86,7 @@ $iconMap: (
     width: 100%;
   }
 
-  .normalContent-textContainer {
+  .primaryContent-textContainer {
     width: 100%;
   }
 }

@@ -66,23 +66,23 @@ class OdsToast extends LitElement {
         aria-live="assertive"
         @click=${this.click.bind(this)}
       >
-        <div class="normalContent">
-          <div class="normalContent-iconContainer">
+        <div class="primaryContent">
+          <div class="primaryContent-iconContainer">
             ${this.checkmarksvg}
           </div>
-          <div class="normalContent-textContainer">
-            <div class="normalContent-textContainer-title">${this.title}</div>
-            <div class="normalContent-textContainer-message">
+          <div class="primaryContent-textContainer">
+            <div class="primaryContent-textContainer-title">${this.title}</div>
+            <div class="primaryContent-textContainer-message">
               ${this.message}
             </div>
           </div>
-          <div class="normalContent-exitContainer">
+          <div class="primaryContent-exitContainer">
             <span alt="Close" @click=${this.destroy.bind(this)}>
               ${this.closesvg}
             </span>
           </div>
         </div>
-        <div class="actionContainer">
+        <div class="secondaryContent">
           <slot></slot>
         </div>
       </div>
