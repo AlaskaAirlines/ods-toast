@@ -106,6 +106,53 @@ toast.onDestroy = () => {
 };
 ```
 
+## Alternate build solutions
+
+Included with the distributed npm are two additional directories, `./altImportsCanonical` and `./altImportsVariable`.
+
+| directory            | description                                                   |
+| -------------------- | ------------------------------------------------------------- |
+| altImportsCanonical† | Sass using canonical values within the scope of the file      |
+| altImportsVariable\* | Sass using CSS Custom Properties within the scope of the file |
+
+† Using canonical CSS properties breaks inheritance chain from Orion Design Tokens
+
+\* Orion Design Tokens are required to import any file using CSS Custom Properties. Also see Orion Design Tokens [pre-processed resources](https://github.com/AlaskaAirlines/OrionDesignTokens#install-pre-processed-resources). PostCSS using `postcss-custom-properties` will need to be added to your project if you are supporting legacy browsers.
+
+Within the respective directories is the `style_clean.scss` file.
+
+```bash
+├── altImports
+|  ├── canonical
+|  |  ├── style.css
+|  |  └── style_clean.scss
+|  └── variable
+|     ├── style.css
+|     └── style_clean.scss
+```
+
+It is highly recommended that you import the `style_clean.scss` this into a name-space as not to create style collisions. For example:
+
+```scss
+.ods-toast {
+  @import "./node_modules/@alaskaairux/ods-toast/altImports/variable/style_clean.scss";
+}
+```
+
+This pattern will produce all the selectors within `style_clean.scss` with the prefixed selector.
+
+```scss
+.ods-toast .toast {
+  display: var(--ods-toast-display);
+  font-family: var(--ods-toast-font-family);
+  border-width: var(--ods-toast-border-width);
+  border-radius: var(--ods-toast-border-radius);
+  ...
+}
+```
+
+**Warning!** Using the canonical CSS will break the chain of using Design Tokens. If Tokens are updated, this will require the update of the components and their canonical output. Use with caution.
+
 ##
 
 Alaska Airlines Orion Design System<br>
