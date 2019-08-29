@@ -18,7 +18,7 @@
 @import "./node_modules/@alaskaairux/orion-icons/dist/orion-icons";
 
 .ods-toast {
-  background-color: var(--color-base-white);
+  background-color: var(--ods-toast-background);
   box-shadow: var(--shadow-box-shadow-classic);
   padding: var(--size-scale-sml);
   border-radius: var(--size-scale-micro);
@@ -38,6 +38,7 @@
 .primaryContent {
   display: flex;
   flex-direction: row;
+  width: 100%;
 
   &-iconContainer,
   &-textContainer,
@@ -61,7 +62,7 @@
     width: 100%;
   }
 }
-/*
+
 @include breakpoint-narrow {
   .ods-toast {
     width: auto;
@@ -71,4 +72,3 @@
     width: auto;
   }
 }
-*/

@@ -1,4 +1,3 @@
-
 // Import generated Design Token variables
 @import "./demo/sass/tokenVariables";
 @import "./demo/sass/tokenProperties";
@@ -14,6 +13,8 @@
 
 // Import Utility classes (will produce CSS in output)
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/utilityClasses";
+
+@import "../../scripts/toaster.scss";
 
 // Custom styles per demo pages
 code {

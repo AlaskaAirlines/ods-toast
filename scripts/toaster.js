@@ -1,77 +1,8 @@
-const html = String.raw;
-
-const style = html`
-  <style>
-    @keyframes entrance {
-      0% {
-        transform: translateY(calc(20px + 100%));
-      }
-      35% {
-        transform: translateY(calc(20px - 15%));
-      }
-      60% {
-        transform: translateY(calc(20px + 8%));
-      }
-      100% {
-        transform: translateY(0%);
-      }
-    }
-
-    @keyframes exit {
-      from {
-        opacity: 1;
-        transform: translateY(0%);
-      }
-      to {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-    }
-
-    .ods-toast__toastContainer {
-      max-width: 400px;
-      width: 100%;
-      position: fixed;
-      bottom: 20px;
-      left: 0;
-    }
-
-    @media screen and (min-width: 420px) {
-      .ods-toast__toastContainer {
-        left: 20px;
-      }
-    }
-
-    ods-toast {
-      transform: translateY(calc(20px + 100%));
-      display: inline-block;
-    }
-
-    .ods-toast__showToast {
-      animation-name: entrance;
-      animation-duration: 2s;
-      transform: translateY(0%);
-    }
-
-    .ods-toast__exitToast {
-      animation-name: exit;
-      animation-duration: 1500ms;
-    }
-
-    @media screen and (max-width: 420px) {
-      ods-toast {
-        width: 100%;
-      }
-    }
-  </style>
-`;
-
 export default class Toaster {
   constructor(displayTime) {
     this.toasts = [];
     this.displayTime = displayTime || 8000;
     this.container = document.createElement("div");
-    this.container.innerHTML = style;
     this.container.setAttribute("aria-live", "polite");
     document.body.appendChild(this.container);
     this.container.className = "ods-toast__toastContainer";
