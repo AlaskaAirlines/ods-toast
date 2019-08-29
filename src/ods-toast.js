@@ -61,7 +61,7 @@ class OdsToast extends LitElement {
     return html`
       ${componentProperties} ${styleCss} ${iconProperties}
       <div
-        class="toast"
+        class="ods-toast"
         aria-role="status"
         aria-live="assertive"
         @click=${this.click.bind(this)}

@@ -13,8 +13,6 @@
       import "@polymer/iron-demo-helpers/demo-snippet";
     </script>
     <script type="module" src="../src/ods-toast.js"></script>
-    <script type="module" src="../scripts/swipe.js"></script>
-    <script type="module" src="../scripts/toaster.js"></script>
     <script src="../demo/alert.js"></script>
     <script type="module">
       import "../node_modules/@polymer/iron-icons/hardware-icons.js";
@@ -26,8 +24,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-    <script>
-      const toasts = new Toaster();
+    <script type="module">
+      //import Swipte from '../scripts/'
+      import Toaster from "../scripts/toaster";
+      const toasts = new Toaster(400000);
       setTimeout(() => {
         toasts.add(
           "1",

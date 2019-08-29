@@ -28,7 +28,7 @@ const style = html`
       }
     }
 
-    .toastContainer {
+    .ods-toast__toastContainer {
       max-width: 400px;
       width: 100%;
       position: fixed;
@@ -37,7 +37,7 @@ const style = html`
     }
 
     @media screen and (min-width: 420px) {
-      .toastContainer {
+      .ods-toast__toastContainer {
         left: 20px;
       }
     }
@@ -47,13 +47,13 @@ const style = html`
       display: inline-block;
     }
 
-    ods-toast.show {
+    .ods-toast__showToast {
       animation-name: entrance;
       animation-duration: 2s;
       transform: translateY(0%);
     }
 
-    ods-toast.exit {
+    .ods-toast__exitToast {
       animation-name: exit;
       animation-duration: 1500ms;
     }
@@ -74,7 +74,7 @@ export default class Toaster {
     this.container.innerHTML = style;
     this.container.setAttribute("aria-live", "polite");
     document.body.appendChild(this.container);
-    this.container.className = "toastContainer";
+    this.container.className = "ods-toast__toastContainer";
   }
 
   add(title, message, actionHTML) {
@@ -95,7 +95,7 @@ export default class Toaster {
     if (this.toasts.length > 0) {
       const currentToast = this.toasts[0];
       this.container.appendChild(currentToast);
-      currentToast.classList.add("show");
+      currentToast.classList.add("ods-toast__showToast");
       currentToast.tabIndex = 0;
       currentToast.addEventListener("keydown", e => {
         console.log(e);
@@ -104,9 +104,11 @@ export default class Toaster {
         }
       });
 
-      if (Swipe !== undefined) {
+      /*
+      if (!!Swipe) {
         new Swipe(currentToast, this._destroyCurrentToast.bind(this));
       }
+      */
 
       this._setAutoDismissal();
     }
@@ -116,8 +118,8 @@ export default class Toaster {
     console.log(this.toasts.length);
     if (this.toasts.length) {
       const currentToast = this.toasts[0];
-      currentToast.classList.remove("show");
-      currentToast.classList.add("exit");
+      currentToast.classList.remove("ods-toast__showToast");
+      currentToast.classList.add("ods-toast__exitToast");
       setTimeout(() => {
         this.container.removeChild(currentToast);
         this.toasts.shift();

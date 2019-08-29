@@ -15,26 +15,9 @@
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/baselineLTE";
 
-$iconMap: (
-  classiccheckmark: true
-);
-
 @import "./node_modules/@alaskaairux/orion-icons/dist/orion-icons";
 
-// container styles - defines the look of the outer custom componet
-// :host {
-//   ...
-// }
-
-// layout styles - define any layout specifications for UI that is contained WITHIN the component
-// never define layout that would cause effect on element ouside the scope of this component
-
-// component shape styles
-// .[selector-name] {
-//   ...
-// }
-
-.toast {
+.ods-toast {
   background-color: var(--color-base-white);
   box-shadow: var(--shadow-box-shadow-classic);
   padding: var(--size-scale-sml);
@@ -45,11 +28,7 @@ $iconMap: (
   box-sizing: border-box;
   word-break: break-word;
   display: inline-block;
-
-  button,
-  a {
-    cursor: pointer;
-  }
+  width: 100%;
 
   .primaryContent-textContainer-title {
     font-weight: bold;
@@ -60,34 +39,36 @@ $iconMap: (
   display: flex;
   flex-direction: row;
 
-  .primaryContent-iconContainer,
-  .primaryContent-textContainer,
-  .primaryContent-exitContainer {
+  &-iconContainer,
+  &-textContainer,
+  &-exitContainer {
     padding: var(--size-scale-sml);
   }
 
-  .primaryContent-iconContainer {
+  &-iconContainer {
     color: var(--color-classic-tropical);
   }
 
-  .primaryContent-exitContainer {
+  &-exitContainer {
     cursor: pointer;
   }
 
-  .primaryContent-textContainer {
+  &-textContainer {
     max-width: calc(
       100% - var(--size-icon-close-width) -
         var(--size-icon-classiccheckmark-width) - (4 * var(--size-scale-sml))
     );
+    width: 100%;
   }
 }
-
-@media screen and (max-width: 420px) {
-  .toast {
-    width: 100%;
+/*
+@include breakpoint-narrow {
+  .ods-toast {
+    width: auto;
   }
 
   .primaryContent-textContainer {
-    width: 100%;
+    width: auto;
   }
 }
+*/
