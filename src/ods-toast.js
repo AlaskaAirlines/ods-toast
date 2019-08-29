@@ -67,16 +67,16 @@ class OdsToast extends LitElement {
         @click=${this.click.bind(this)}
       >
         <div class="primaryContent">
-          <div class="primaryContent-iconContainer">
+          <div class="primaryContent-container primaryContent-container--icon">
             ${this.checkmarksvg}
           </div>
-          <div class="primaryContent-textContainer">
-            <div class="primaryContent-textContainer-title">${this.title}</div>
-            <div class="primaryContent-textContainer-message">
+          <div class="primaryContent-container primaryContent-container--text">
+            <div class="primaryContent-title">${this.title}</div>
+            <div class="primaryContent-message">
               ${this.message}
             </div>
           </div>
-          <div class="primaryContent-exitContainer">
+          <div class="primaryContent-container primaryContent-container--exit">
             <span alt="Close" @click=${this.destroy.bind(this)}>
               ${this.closesvg}
             </span>

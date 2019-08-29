@@ -29,10 +29,6 @@
   word-break: break-word;
   display: inline-block;
   width: 100%;
-
-  .primaryContent-textContainer-title {
-    font-weight: bold;
-  }
 }
 
 .primaryContent {
@@ -40,26 +36,28 @@
   flex-direction: row;
   width: 100%;
 
-  &-iconContainer,
-  &-textContainer,
-  &-exitContainer {
+  &-title {
+    font-weight: bold;
+  }
+
+  &-container {
     padding: var(--size-scale-sml);
-  }
 
-  &-iconContainer {
-    color: var(--color-classic-tropical);
-  }
+    &--icon {
+      color: var(--color-classic-tropical);
+    }
 
-  &-exitContainer {
-    cursor: pointer;
-  }
+    &--exit {
+      cursor: pointer;
+    }
 
-  &-textContainer {
-    max-width: calc(
-      100% - var(--size-icon-close-width) -
-        var(--size-icon-classiccheckmark-width) - (4 * var(--size-scale-sml))
-    );
-    width: 100%;
+    &--text {
+      max-width: calc(
+        100% - var(--size-icon-close-width) -
+          var(--size-icon-classiccheckmark-width) - (4 * var(--size-scale-sml))
+      );
+      width: 100%;
+    }
   }
 }
 
