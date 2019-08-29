@@ -20,7 +20,7 @@ $ npm i @alaskaairux/ods-toast
 
 ## Toaster
 
-It is recommended that you use the bundled [Toaster.js](docs/Toaster.md) tool to display and manage toasts on a given screen.
+It is recommended that you use the bundled [Toaster.js](docs/Toaster.md) tool to display and manage toasts on a given screen. [Toaster.js](docs/Toaster.md) is a optional utility class containing logic for managing toasts.
 
 ### Design Token CSS Custom Property dependency
 

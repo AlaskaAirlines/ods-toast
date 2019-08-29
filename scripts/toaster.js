@@ -1,4 +1,3 @@
-import Swipe from "./swipe";
 const html = String.raw;
 
 const style = html`
@@ -104,7 +103,11 @@ export default class Toaster {
           this._destroyCurrentToast();
         }
       });
-      new Swipe(currentToast, this._destroyCurrentToast.bind(this));
+
+      if (Swipe !== undefined) {
+        new Swipe(currentToast, this._destroyCurrentToast.bind(this));
+      }
+
       this._setAutoDismissal();
     }
   }

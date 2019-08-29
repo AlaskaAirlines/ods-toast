@@ -13,23 +13,29 @@ $ npm i @alaskaairux/ods-toast
 ## Import
 
 ```javascript
-import Toaster from "@alaskaairux/ods-toast/scripts/toaster";
+import Toaster from "@alaskaairux/ods-toast/dist/scripts/toaster";
 ```
 
-### Constructor Parameters:
+**Optional:** For touch screen swipe to dismiss support `swipe.js` is a dependency.
+
+```javascript
+import Swipe from "@alaskaairux/ods-toast/dist/scripts/swipe";
+```
+
+## Constructor Parameters:
 
 | Param       | Value type | Description                                                 |
 | ----------- | ---------- | ----------------------------------------------------------- |
 | displayTime | int, null  | display time for each toast component before auto dismissal |
 
-### Create a toaster instance
+## Create a toaster instance
 
 ```javascript
 // Constructor auto dismissal time as ms
 const toaster = new Toaster(8000);
 ```
 
-### add
+## add
 
 `add`
 
