@@ -19,12 +19,12 @@
 
 .ods-toast {
   background-color: var(--ods-toast-background);
-  box-shadow: var(--shadow-box-shadow-classic);
-  padding: var(--size-scale-sml);
-  border-radius: var(--size-scale-micro);
-  border-bottom: 6px solid var(--color-classic-tropical);
-  max-width: 400px;
-  z-index: 1001;
+  box-shadow: var(--ods-toast-box-shadow);
+  padding: var(--ods-toast-padding);
+  border-radius: var(--ods-toast-border-radius);
+  border-bottom: var(--ods-toast-border-bottom);
+  max-width: var(--ods-toast-max-width);
+  z-index: var(--ods-toast-z-index);
   box-sizing: border-box;
   word-break: break-word;
   display: inline-block;
@@ -41,10 +41,10 @@
   }
 
   &-container {
-    padding: var(--size-scale-sml);
+    padding: var(--ods-toast-padding);
 
     &--icon {
-      color: var(--color-classic-tropical);
+      color: var(--ods-toast-icon-color);
     }
 
     &--exit {
@@ -54,7 +54,8 @@
     &--text {
       max-width: calc(
         100% - var(--size-icon-close-width) -
-          var(--size-icon-classiccheckmark-width) - (4 * var(--size-scale-sml))
+          var(--size-icon-classiccheckmark-width) -
+          (4 * var(--ods-toast-padding))
       );
       width: 100%;
     }

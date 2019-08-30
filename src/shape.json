@@ -25,6 +25,14 @@
 
   "ods-toast": {
     "background": { "value": "var(--color-base-white)" },
-    "display": { "value": "inline-block" }
+    "box-shadow": { "value": "var(--shadow-box-shadow-classic)" },
+    "padding": { "value": "var(--size-scale-sml)" },
+    "border-radius": { "value": "var(--size-scale-micro)" },
+    "border-bottom": { "value": "6px solid var(--color-classic-tropical)" },
+    "max-width": { "value": "400px" },
+    "z-index": { "value": "1001" },
+    "icon": {
+      "color": { "value": "var(--color-classic-tropical)" }
+    }
   }
 }
