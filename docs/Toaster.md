@@ -16,7 +16,24 @@ $ npm i @alaskaairux/ods-toast
 import Toaster from "@alaskaairux/ods-toast/dist/scripts/toaster";
 ```
 
+## Import Styling
+
+Toaster has a dependency on `@alaskaairux/ods-toast/dist/scripts/toaster.scss`
+Which has a dependency on `@alaskaairux/orion-web-core-style-sheets/dist/breakpoints`
+
+```SCSS
+// depends on orion web core for mobile compatibility break points
+@import "@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
+@import "@alaskaairux/ods-toast/scripts/toaster.scss";
+```
+
 **Optional:** For touch screen swipe to dismiss support `swipe.js` is a dependency.
+
+```Javascript
+import Swipe from "@alaskaairux/ods-toast/dist/scripts/swipe";
+// Define swipe in global context
+window.Swipe = Swipe;
+```
 
 ```javascript
 import Swipe from "@alaskaairux/ods-toast/dist/scripts/swipe";

@@ -35,9 +35,7 @@ export default class Toaster {
         }
       });
 
-      console.log(typeof Swipe);
       if (typeof Swipe !== "undefined") {
-        console.log("SHRIEK IS LOVE SHRIEK IS LIFE");
         new Swipe(currentToast, this._destroyCurrentToast.bind(this));
       }
 
