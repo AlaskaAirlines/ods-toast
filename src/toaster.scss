@@ -1,0 +1,63 @@
+@import "./tokens/tokenVariables";
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
+
+@keyframes entrance {
+  0% {
+    transform: translateY(calc(20px + 100%));
+  }
+  35% {
+    transform: translateY(calc(20px - 10%));
+  }
+  60% {
+    transform: translateY(calc(20px + 3%));
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes exit {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+ods-toast {
+  transform: translateY(calc(20px + 100%));
+  display: inline-block;
+  width: 100%;
+
+  @include breakpoint-narrow {
+    min-width: 400px;
+  }
+}
+
+.ods-toast {
+  &__toastContainer {
+    width: 100%;
+    position: fixed;
+    bottom: $size-scale-lg;
+    left: 0px;
+
+    @include breakpoint-narrow {
+      max-width: 400px;
+      left: 20px;
+    }
+  }
+
+  &__showToast {
+    animation-name: entrance;
+    animation-duration: 1s;
+    transform: translateY(0%);
+  }
+
+  &__exitToast {
+    animation-name: exit;
+    animation-duration: 1500ms;
+  }
+}

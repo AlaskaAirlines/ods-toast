@@ -14,7 +14,7 @@
 // Import Utility classes (will produce CSS in output)
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/utilityClasses";
 
-@import "../../scripts/toaster.scss";
+@import "../../src/toaster.scss";
 
 // Custom styles per demo pages
 code {
@@ -24,4 +24,9 @@ code {
 .vertical-section-container {
   margin: 0 auto;
   max-width: var(--size-width-max);
+}
+
+// selector to keep toasts static in demo view
+ods-toast {
+  transform: unset;
 }

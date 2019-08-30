@@ -26,25 +26,14 @@ class OdsToast extends LitElement {
 
     this.dom = new DOMParser().parseFromString(close.svg, "text/html");
     this.closesvg = this.dom.body.firstChild;
-
-    //   /*
-    //     If the component requires a touch detection,
-    //     please use this function to determine if a user is
-    //     activelly touching a device, versus detecting if
-    //     the device is touch enables or a handheld device.
-
-    //     Also uncomment the touch detection lib above
-    //   */
-    //   this.addEventListener('touchstart', function() {
-    //     this.classList.add('is-touching');
-    //   });
   }
 
   // function to define props used within the scope of thie component
   static get properties() {
     return {
-      title: { type: String },
-      message: { type: String }
+      title:          { type: String },
+      message:        { type: String },
+      clickCallback:  { type: Function }
     };
   }
 
@@ -57,21 +46,21 @@ class OdsToast extends LitElement {
   // function that renders the HTML and CSS into the scope of the component
   render() {
     return html`
-      ${componentProperties} ${styleCss} ${iconProperties}
-      <div
-        class="ods-toast"
-        aria-role="status"
-        aria-live="assertive"
-        @click=${this.clickCallback.bind(this)}
-      >
+      ${componentProperties}
+      ${iconProperties}
+      ${styleCss}
+
+      <div class="ods-toast" aria-role="status" aria-live="assertive"  @click=${this.clickCallback.bind(this)}>
+
         <div class="primaryContent">
           <div class="primaryContent-container primaryContent-container--icon">
             ${this.checkmarksvg}
           </div>
           <div class="primaryContent-container primaryContent-container--text">
             <div class="primaryContent-title">${this.title}</div>
-            <div class="primaryContent-message">
-              ${this.message}
+            <div class="primaryContent-message">${this.message}</div>
+            <div class="secondaryContent">
+              <slot></slot>
             </div>
           </div>
           <div class="primaryContent-container primaryContent-container--exit">
@@ -79,9 +68,6 @@ class OdsToast extends LitElement {
               ${this.closesvg}
             </span>
           </div>
-        </div>
-        <div class="secondaryContent">
-          <slot></slot>
         </div>
       </div>
     `;
