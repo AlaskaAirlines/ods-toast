@@ -9,13 +9,13 @@
     <title>Orion Design System | ods-toast element</title>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module">
-      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-      import '@polymer/iron-demo-helpers/demo-snippet';
+      import "@polymer/iron-demo-helpers/demo-pages-shared-styles";
+      import "@polymer/iron-demo-helpers/demo-snippet";
     </script>
     <script type="module" src="../src/ods-toast.js"></script>
     <script src="../demo/alert.js"></script>
     <script type="module">
-      import '../node_modules/@polymer/iron-icons/hardware-icons.js';
+      import "../node_modules/@polymer/iron-icons/hardware-icons.js";
     </script>
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles"></style>
@@ -24,6 +24,16 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
+    <script type="module">
+      import Swipe from "../scripts/swipe.js";
+      window.Swipe = Swipe;
+      import Toaster from "../scripts/toaster";
+      const toasts = new Toaster(400000);
+      setTimeout(() => {
+        toasts.add("1", "you", "<button>click me</button>");
+        toasts.add("2");
+      }, 1000);
+    </script>
     <div class="vertical-section-container">
       <h1>ods-toast</h1>
 
@@ -59,12 +69,6 @@
           ></iron-icon>
         </span>
       </p>
-
-      <demo-snippet>
-        <template>
-          <ods-toast cssClass="testClass">Hello World!</ods-toast>
-        </template>
-      </demo-snippet>
 
       <h2>Element &#60;ods-toast&#62;</h2>
 

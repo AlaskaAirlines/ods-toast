@@ -18,6 +18,10 @@ All information regarding Project Setup, Technical Details, Tests and informatio
 $ npm i @alaskaairux/ods-toast
 ```
 
+## Toaster
+
+It is recommended that you use the bundled [Toaster.js](docs/Toaster.md) tool to display and manage toasts on a given screen. [Toaster.js](docs/Toaster.md) is a optional utility class containing logic for managing toasts.
+
 ### Design Token CSS Custom Property dependency
 
 The use of any ODS Component has a dependency on the [ODS Design Tokens (npm install)](https://www.npmjs.com/package/@alaskaairux/orion-design-tokens). See repository and API information [here](https://github.com/AlaskaAirlines/OrionDesignTokens).
@@ -28,18 +32,10 @@ For additional details in regards to using Orion Design Tokens with components, 
 
 CSS Custom Properties are not supported in older browsers. For this, fallback properties are pre-generated and included with the npm. Any update to the Orion Design Tokens will be immediately reflected with browsers that support CSS Custom Properties, legacy browsers will require updated components with pre-generated fallback properties.
 
-### Define dependency in project component
-
-Define the component dependency within each component that is using the \<ods-toast> component.
-
-```javascript
-import "@alaskaairux/ods-toast/dist/ods-toast";
-```
-
 **Reference component in HTML**
 
 ```html
-<ods-toast>Hello World</ods-toast>
+<ods-toast title="This is the title"></ods-toast>
 ```
 
 ## Element \<ods-toast>
@@ -48,52 +44,76 @@ import "@alaskaairux/ods-toast/dist/ods-toast";
 class Odstoast extends LitElement
 ```
 
-### Styling (experimental)
-
-Option(s) for component customization
-
-| Selector | Type | State | Description |
-|----|----|----|---|
-| ::part() | pseudo-element | experimental | Update shadowDOM CSS from outside the component |
-
-### toast use cases
+### Toast use cases
 
 The \<ods-toast> element should be used in situations where users may:
 
-* action
-* action
-* action
+- be alerted of successful actions
 
 ### Properties:
 
-| Attribute | Value type | Description |
-|----|----|----|
-| attr | string, boolean, function | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. |
+| Attribute | Value type   | Description                                             |
+| --------- | ------------ | ------------------------------------------------------- |
+| title     | string       | large bold-faced text at the top of the toast component |
+| message   | string, null | smaller text that appears below the title               |
 
 ### API Code Examples
 
 Default toast
 
 ```html
-<ods-toast>Hello World</ods-toast>
+<ods-toast title="This is a toast"></ods-toast>
 ```
 
-### React Custom callbacks
-
-toast(React support) with `ref` for passing in an event, [see notes](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/blob/master/docs/CALLBACK.md)
+Toast with slotting
 
 ```html
-<ods-toast ref={this.event}>hello world</ods-toast>
+<ods-toast title="This is a toast" message="This is the message">
+  <button>Click me!</button>
+  <button>No, click me!</button>
+</ods-toast>
+```
+
+### Custom callbacks
+
+### onClick
+
+`onClick` is a callback that is fired when a user clicks on the toast component.
+
+```html
+<ods-toast id="toast" title="This is the title"></ods-toast>
+```
+
+```javascript
+const toast = document.querySelector("#toast");
+toast.onClick = () => {
+  alert("I have been clicked");
+};
+```
+
+## onDestroy
+
+`onDestroy` is a callback that is fired when a user clicks on the X icon of a toast component.
+
+```html
+<ods-toast id="toast" title="This is the title"></ods-toast>
+```
+
+```javascript
+const toast = document.querySelector("#toast");
+toast.onDestroy = () => {
+  alert("I have been clicked");
+};
 ```
 
 ## Alternate build solutions
 
 Included with the distributed npm are two additional directories, `./altImportsCanonical` and `./altImportsVariable`.
 
-| directory | description |
-|---|---|
-| altImportsCanonical† | Sass using canonical values within the scope of the file |
-| altImportsVariable* | Sass using CSS Custom Properties within the scope of the file |
+| directory            | description                                                   |
+| -------------------- | ------------------------------------------------------------- |
+| altImportsCanonical† | Sass using canonical values within the scope of the file      |
+| altImportsVariable\* | Sass using CSS Custom Properties within the scope of the file |
 
 † Using canonical CSS properties breaks inheritance chain from Orion Design Tokens
 

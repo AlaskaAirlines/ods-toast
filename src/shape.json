@@ -3,7 +3,7 @@
     "Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license",
     "See LICENSE in the project root for license information."
   ],
-  
+
   "//": [
     "================================================================================",
     "This is the file that drives the shape of the component as defined in component specific Design Tokens.",
@@ -19,14 +19,20 @@
   ],
 
   "host": {
-    "display": {"value": "flex"},
-    "borderRadius": {"value": "var(--size-border-radius-default)"}
+    "display": { "value": "flex" },
+    "borderRadius": { "value": "var(--size-border-radius-default)" }
   },
 
   "ods-toast": {
-    "display": {"value": "inline-block"},
-    "background": {
-      "color": {"value": "var(--color-brand-blue-atlas-base)"}
+    "background": { "value": "var(--color-base-white)" },
+    "box-shadow": { "value": "var(--shadow-box-shadow-classic)" },
+    "padding": { "value": "var(--size-scale-sml)" },
+    "border-radius": { "value": "var(--size-scale-micro)" },
+    "border-bottom": { "value": "6px solid var(--color-classic-tropical)" },
+    "max-width": { "value": "400px" },
+    "z-index": { "value": "1001" },
+    "icon": {
+      "color": { "value": "var(--color-classic-tropical)" }
     }
   }
 }
