@@ -25,6 +25,8 @@
   </head>
   <body>
     <script type="module">
+      import Swipe from "../scripts/swipe.js";
+      window.Swipe = Swipe;
       import Toaster from "../scripts/toaster";
       const toasts = new Toaster(400000);
       setTimeout(() => {
