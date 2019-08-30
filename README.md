@@ -6,7 +6,15 @@
 
 # \<ods-toast>
 
-\<ods-toast> is a wrapper component for a HTML \<toast> element containing styling and behavior.
+\<ods-toast> is custom functional web component for the purpose of exposing a user feedback interface.
+
+## Classic UI
+
+\<ods-toast> currently supports a Classic Alaska Airlines UI and is to ONLY be used in the Classic context.
+
+## Orion UI
+
+\<ods-toast> does not currently support the Orion Design UI and it not recommended to be used in Orion UI based project at this time.
 
 ## Docs
 
@@ -18,9 +26,11 @@ All information regarding Project Setup, Technical Details, Tests and informatio
 $ npm i @alaskaairux/ods-toast
 ```
 
-## Toaster
+### Toaster.js
 
-It is recommended that you use the bundled [Toaster.js](docs/Toaster.md) tool to display and manage toasts on a given screen. [Toaster.js](docs/Toaster.md) is a optional utility class containing logic for managing toasts.
+Use the bundled [Toaster.js](docs/Toaster.md) tool to display and manage toasts in a given interface. This dependency isn't built into the scope of the component in order to allow for consuming projects to bundle it with other project dependencies as needed.
+
+Toaster.js is an optional--but highly recommended--utility class containing logic to manage toasts. If there is a compelling reason not to use Toaster.js, please submit an issue with the intent to resolve it.
 
 ### Design Token CSS Custom Property dependency
 
@@ -46,9 +56,11 @@ class Odstoast extends LitElement
 
 ### Toast use cases
 
-The \<ods-toast> element should be used in situations where users may:
+The \<ods-toast> element should be used in situations where:
 
-- be alerted of successful actions
+- alert of successful actions is passive
+- message does not require interaction from user
+- messages, if missed by auto dismiss, is not crucial to the users interaction
 
 ### Properties:
 
@@ -56,55 +68,29 @@ The \<ods-toast> element should be used in situations where users may:
 | --------- | ------------ | ------------------------------------------------------- |
 | title     | string       | large bold-faced text at the top of the toast component |
 | message   | string, null | smaller text that appears below the title               |
+| clickCallback | function | to allow for external events to be bound within the scope of the shadow DOM |
+
 
 ### API Code Examples
 
-Default toast
+##### Default toast
 
 ```html
 <ods-toast title="This is a toast"></ods-toast>
 ```
 
-Toast with slotting
+##### Toast with slotting
 
 ```html
-<ods-toast title="This is a toast" message="This is the message">
-  <button>Click me!</button>
-  <button>No, click me!</button>
+<ods-toast title="This is a title" message="This is a message">
+  <ods-hyperlink class="util_paddingLeft--none" href="#">Learn more</ods-hyperlink>
 </ods-toast>
 ```
 
-### Custom callbacks
+> ods-hyperlink example styling; requires @alaskaairux/ods-hyperlink: ^1.0.6
 
-### onClick
+> The classes `util_paddingLeft--none` and `util_paddingRight--none` can be placed on the `ods-hyperlink` element using the class attribute.
 
-`onClick` is a callback that is fired when a user clicks on the toast component.
-
-```html
-<ods-toast id="toast" title="This is the title"></ods-toast>
-```
-
-```javascript
-const toast = document.querySelector("#toast");
-toast.onClick = () => {
-  alert("I have been clicked");
-};
-```
-
-## onDestroy
-
-`onDestroy` is a callback that is fired when a user clicks on the X icon of a toast component.
-
-```html
-<ods-toast id="toast" title="This is the title"></ods-toast>
-```
-
-```javascript
-const toast = document.querySelector("#toast");
-toast.onDestroy = () => {
-  alert("I have been clicked");
-};
-```
 
 ## Alternate build solutions
 

@@ -17,6 +17,9 @@
     <script type="module">
       import "../node_modules/@polymer/iron-icons/hardware-icons.js";
     </script>
+    <script type="module">
+      import "../node_modules/@alaskaairux/ods-hyperlink/dist/ods-hyperlink.js";
+    </script>
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles"></style>
     </custom-style>
@@ -25,19 +28,20 @@
   </head>
   <body>
     <script type="module">
-      import Swipe from "../scripts/swipe.js";
+      import Swipe from "../src/swipe.js";
       window.Swipe = Swipe;
-      import Toaster from "../scripts/toaster";
-      const toasts = new Toaster(400000);
+      import Toaster from "../src/toaster";
+      const toasts = new Toaster(7000);
       setTimeout(() => {
-        toasts.add("1", "you", "<button>click me</button>");
-        toasts.add("2");
+        toasts.add("Status updated", "", "");
+        toasts.add("Flight information updated", "Your seat preference has been saved", "This is some additional text in the slot");
+        toasts.add("Status updated", "Your preference has been updated", "<ods-hyperlink class='util_paddingLeft--none' target='_blank' href='#'>ods-hyperlink</ods-hyperlink>");
       }, 1000);
     </script>
     <div class="vertical-section-container">
       <h1>ods-toast</h1>
 
-      <p>Component description ...</p>
+      <p>&#60;ods-toast&#62; is custom functional web component for the purpose of exposing a user feedback interface.</p>
 
       <p class="ironIcons">
         <span class="util_floatLeft util_marginRight--med"
@@ -70,19 +74,39 @@
         </span>
       </p>
 
+      <demo-snippet>
+        <template>
+          <ods-toast title="This is a title" tabindex="0"></ods-toast>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <ods-toast title="This is a title" message="This is a message" tabindex="0"></ods-toast>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <ods-toast title="This is a title" message="This is a message" tabindex="0">
+            <ods-hyperlink class="util_paddingLeft--none" href="#">Learn more</ods-hyperlink>
+          </ods-toast>
+        </template>
+      </demo-snippet>
+
       <h2>Element &#60;ods-toast&#62;</h2>
 
       <pre><code>class OdsToast extends LitElement</code></pre>
 
       <h3>Styling:</h3>
-      <p>Info ...</p>
+      <p>This component has an available slot for placing custom content. If there are custom styling needs, please see <ods-hyperlink inline target="_blank" href="https://css-tricks.com/styling-a-web-component/#article-header-id-5">this article</ods-hyperlink> for more information how to do so.</p>
+
+      <h3>ods-hyperlink styling</h3>
+      <p>Requires <code>@alaskaairux/ods-hyperlink: ^1.0.6</code></p>
+      <p>Additional utility styling is supported. The classes <code>util_paddingLeft--none</code> and <code>util_paddingRight--none</code> can be placed on the <code>ods-hyperlink</code> element using the <code>class</code> attribute.</p>
 
       <h3>Responsive state:</h3>
-      <p>Info ...</p>
-
-      <h3>Properties:</h3>
-      <code><strong>string:</strong> string</code>
-      <p>Info ...</p>
+      <p>This component is pre-coded to manage a mobile-first UI state.</p>
     </div>
   </body>
 </html>

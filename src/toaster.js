@@ -8,11 +8,11 @@ export default class Toaster {
     this.container.className = "ods-toast__toastContainer";
   }
 
-  add(title, message, actionHTML) {
+  add(title, message, slotHTML) {
     const toast = document.createElement("ods-toast");
     toast.setAttribute("title", title);
     toast.setAttribute("message", message || "");
-    toast.innerHTML = actionHTML || "";
+    toast.innerHTML = slotHTML || "";
     toast.destroyCallback = this._destroyCurrentToast.bind(this);
     toast.clickCallback = this._setAutoDismissal.bind(this);
 
@@ -29,8 +29,9 @@ export default class Toaster {
       currentToast.classList.add("ods-toast__showToast");
       currentToast.tabIndex = 0;
       currentToast.addEventListener("keydown", e => {
-        console.log(e);
-        if (e.keyCode == 27) {
+
+        // Supports either the esc or return keys
+        if (e.keyCode == 27 || e.keyCode == 13) {
           this._destroyCurrentToast();
         }
       });

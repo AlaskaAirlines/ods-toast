@@ -9,65 +9,68 @@
 @import "./tokens/tokenVariables";
 @import "./tokens/componentShapeVariables";
 
-@import "./tokens/tokenProperties";
-@import "./tokens/componentShapeProperties";
-
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/baselineLTE";
 
-@import "./node_modules/@alaskaairux/orion-icons/dist/orion-icons";
+:host(.focus-visible) {
+  .ods-toast {
+    outline: var(--host-outline);
+  }
+}
 
 .ods-toast {
   background-color: var(--ods-toast-background);
   box-shadow: var(--ods-toast-box-shadow);
-  padding: var(--ods-toast-padding);
   border-radius: var(--ods-toast-border-radius);
   border-bottom: var(--ods-toast-border-bottom);
-  max-width: var(--ods-toast-max-width);
   z-index: var(--ods-toast-z-index);
-  box-sizing: border-box;
   word-break: break-word;
-  display: inline-block;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
+
+  @include breakpoint-narrow {
+    max-width: var(--ods-toast-max-width);
+    margin: 0;
+  }
 }
 
 .primaryContent {
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  width: var(--primary-content-full-width);
+  padding: var(--ods-toast-padding);
 
   &-title {
     font-weight: bold;
   }
 
   &-container {
-    padding: var(--ods-toast-padding);
-
     &--icon {
       color: var(--ods-toast-icon-color);
+      padding-right: var(--size-scale-sml);
+      height: 1rem;
+
+      svg {
+        margin: var(--size-scale-micro);
+        margin-top: 2px;
+      }
     }
 
     &--exit {
       cursor: pointer;
+      height: 1rem;
+      padding-left: var(--ods-toast-padding);
+
+      // Using !important is to over-ride default inline styles on the SVG
+      // There are no Design Tokens for these spacing specs
+      svg {
+        width: 12px !important;
+        height: 12px !important;
+        margin: 4px 6px 6px;
+      }
     }
 
     &--text {
-      max-width: calc(
-        100% - var(--size-icon-close-width) -
-          var(--size-icon-classiccheckmark-width) -
-          (4 * var(--ods-toast-padding))
-      );
-      width: 100%;
+      width: var(--ods-toast-max-width);
     }
-  }
-}
-
-@include breakpoint-narrow {
-  .ods-toast {
-    width: auto;
-  }
-
-  .primaryContent-textContainer {
-    width: auto;
   }
 }

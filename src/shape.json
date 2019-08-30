@@ -20,19 +20,24 @@
 
   "host": {
     "display": { "value": "flex" },
-    "borderRadius": { "value": "var(--size-border-radius-default)" }
+    "borderRadius": { "value": "var(--size-border-radius-default)" },
+    "outline": { "value": "var(--color-base-shark) solid 3px" }
   },
 
   "ods-toast": {
     "background": { "value": "var(--color-base-white)" },
-    "box-shadow": { "value": "var(--shadow-box-shadow-classic)" },
+    "boxShadow": { "value": "var(--shadow-box-shadow-classic)" },
     "padding": { "value": "var(--size-scale-sml)" },
-    "border-radius": { "value": "var(--size-scale-micro)" },
-    "border-bottom": { "value": "6px solid var(--color-classic-tropical)" },
-    "max-width": { "value": "400px" },
-    "z-index": { "value": "1001" },
+    "borderRadius": { "value": "var(--size-scale-micro)" },
+    "borderBottom": { "value": "6px solid var(--color-classic-tropical)" },
+    "maxWidth": { "value": "400px" },
+    "fullWidth": { "value": "90%"},
+    "zIndex": { "value": "1001" },
     "icon": {
       "color": { "value": "var(--color-classic-tropical)" }
     }
+  },
+  "primaryContent": {
+    "fullWidth": { "value": "100%" }
   }
 }
