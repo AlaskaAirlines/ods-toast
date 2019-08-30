@@ -13,8 +13,8 @@ export default class Toaster {
     toast.setAttribute("title", title);
     toast.setAttribute("message", message || "");
     toast.innerHTML = actionHTML || "";
-    toast.onDestroy = this._destroyCurrentToast.bind(this);
-    toast.onClick = this._setAutoDismissal.bind(this);
+    toast.destroyCallback = this._destroyCurrentToast.bind(this);
+    toast.clickCallback = this._setAutoDismissal.bind(this);
 
     this.toasts.push(toast);
     if (this.toasts.length == 1) {

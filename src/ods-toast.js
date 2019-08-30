@@ -48,13 +48,11 @@ class OdsToast extends LitElement {
     };
   }
 
-  destroy() {
-    if (!!this.onDestroy) this.onDestroy();
+  destroyCallback() {
+    this.parentElement.removeChild(this);
   }
 
-  click() {
-    if (!!this.onClick) this.onClick();
-  }
+  clickCallback() {}
 
   // function that renders the HTML and CSS into the scope of the component
   render() {
@@ -64,7 +62,7 @@ class OdsToast extends LitElement {
         class="ods-toast"
         aria-role="status"
         aria-live="assertive"
-        @click=${this.click.bind(this)}
+        @click=${this.clickCallback.bind(this)}
       >
         <div class="primaryContent">
           <div class="primaryContent-container primaryContent-container--icon">
@@ -77,7 +75,7 @@ class OdsToast extends LitElement {
             </div>
           </div>
           <div class="primaryContent-container primaryContent-container--exit">
-            <span alt="Close" @click=${this.destroy.bind(this)}>
+            <span alt="Close" @click=${this.destroyCallback.bind(this)}>
               ${this.closesvg}
             </span>
           </div>
