@@ -1,7 +1,7 @@
 export default class Toaster {
   constructor(displayTime) {
     this.toasts = [];
-    this.displayTime = displayTime || 8000;
+    this.displayTime = displayTime || 7000;
     this.container = document.createElement("div");
     this.container.setAttribute("aria-live", "polite");
     document.body.appendChild(this.container);
@@ -44,17 +44,26 @@ export default class Toaster {
     }
   }
 
-  _destroyCurrentToast() {
-    console.log(this.toasts.length);
+   // animation-duration(css) must match _destroyCurrentToast() setTimeout value
+  _destroyCurrentToast(xDiff) {
     if (this.toasts.length) {
       const currentToast = this.toasts[0];
       currentToast.classList.remove("ods-toast__showToast");
-      currentToast.classList.add("ods-toast__exitToast");
+
+      if (xDiff < 0) {
+        currentToast.classList.add("ods-toast__exitToast--right");
+      } else if (xDiff > 0) {
+        currentToast.classList.add("ods-toast__exitToast--left");
+      } else {
+        currentToast.classList.add("ods-toast__exitToast--down");
+      }
+
+
       setTimeout(() => {
         this.container.removeChild(currentToast);
         this.toasts.shift();
         this._showNextToast();
-      }, 1500);
+      }, 300);
     }
   }
 

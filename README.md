@@ -8,14 +8,6 @@
 
 \<ods-toast> is custom functional web component for the purpose of exposing a user feedback interface.
 
-## Classic UI
-
-\<ods-toast> currently supports a Classic Alaska Airlines UI and is to ONLY be used in the Classic context.
-
-## Orion UI
-
-\<ods-toast> does not currently support the Orion Design UI and it not recommended to be used in Orion UI based project at this time.
-
 ## Docs
 
 All information regarding Project Setup, Technical Details, Tests and information regarding ODS Stateless Components can be found in the [./docs](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/tree/master/docs) repository.
@@ -32,6 +24,10 @@ Use the bundled [Toaster.js](docs/Toaster.md) tool to display and manage toasts 
 
 Toaster.js is an optional--but highly recommended--utility class containing logic to manage toasts. If there is a compelling reason not to use Toaster.js, please submit an issue with the intent to resolve it.
 
+### Swipt.js
+
+Swipe.js is an independent dependency that will only be loaded when the user's device is detected to support [touchstart](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchstart_event).
+
 ### Design Token CSS Custom Property dependency
 
 The use of any ODS Component has a dependency on the [ODS Design Tokens (npm install)](https://www.npmjs.com/package/@alaskaairux/orion-design-tokens). See repository and API information [here](https://github.com/AlaskaAirlines/OrionDesignTokens).
@@ -47,6 +43,18 @@ CSS Custom Properties are not supported in older browsers. For this, fallback pr
 ```html
 <ods-toast title="This is the title"></ods-toast>
 ```
+
+## UI Theme Support
+
+The \<ods-toast> custom element will support both the Classic Alaska UI and the new Orion Design UI. 
+
+### Classic UI
+
+\<ods-toast> currently supports a Classic Alaska Airlines UI and is to ONLY be used in the Classic context.
+
+### Orion UI
+
+\<ods-toast> does not currently support the Orion Design UI and it not recommended to be used in Orion UI based project at this time.
 
 ## Element \<ods-toast>
 
@@ -73,19 +81,53 @@ The \<ods-toast> element should be used in situations where:
 
 ### API Code Examples
 
-##### Default toast
+##### Default Classic Toast
+
+![example-img](./images/01.png)
 
 ```html
-<ods-toast title="This is a toast"></ods-toast>
+<ods-toast title="This is a title"></ods-toast>
 ```
 
-##### Toast with slotting
+![example-img](./images/02.png)
+
+```html
+<ods-toast title="This is a title" message="This is a message"></ods-toast>
+```
+
+##### Classic Toast with slotting
+
+![example-img](./images/03.png)
 
 ```html
 <ods-toast title="This is a title" message="This is a message">
   <ods-hyperlink class="util_paddingLeft--none" href="#">Learn more</ods-hyperlink>
 </ods-toast>
 ```
+
+##### Loading Dynamic Toasts
+
+Loading a dynamic experience with \<ods-toast> requires the use of Toaster.js and Swipe.js and follows a slightly different API then that of the static web component. 
+
+The following example illustrates how you could implement a use case:
+
+```html
+<script type="module">
+  import Swipe from "../src/swipe.js";
+  window.Swipe = Swipe;
+  import Toaster from "../src/toaster";
+  const toastDuration = 7000;
+  const initialToastDelay = 500;
+  const toasts = new Toaster(toastDuration);
+  setTimeout(() => {
+    toasts.add("Status updated");
+    toasts.add("Flight information updated", "Your seat preference has been saved");
+    toasts.add("Status updated", "Your preference has been updated", "<ods-hyperlink class='util_paddingLeft--none' target='_blank' href='#'>ods-hyperlink</ods-hyperlink>");
+  }, initialToastDelay);
+</script>
+```
+
+Each instance of `toasts.add()` will add the \<ods-toast> custom element to the view.
 
 > ods-hyperlink example styling; requires @alaskaairux/ods-hyperlink: ^1.0.6
 
