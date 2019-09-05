@@ -31,12 +31,14 @@
       import Swipe from "../src/swipe.js";
       window.Swipe = Swipe;
       import Toaster from "../src/toaster";
-      const toasts = new Toaster(7000);
+      const toastDuration = 7000;
+      const initialToastDelay = 500;
+      const toasts = new Toaster(toastDuration);
       setTimeout(() => {
-        toasts.add("Status updated", "", "");
-        toasts.add("Flight information updated", "Your seat preference has been saved", "This is some additional text in the slot");
+        toasts.add("Status updated");
+        toasts.add("Flight information updated", "Your seat preference has been saved");
         toasts.add("Status updated", "Your preference has been updated", "<ods-hyperlink class='util_paddingLeft--none' target='_blank' href='#'>ods-hyperlink</ods-hyperlink>");
-      }, 1000);
+      }, initialToastDelay);
     </script>
     <div class="vertical-section-container">
       <h1>ods-toast</h1>

@@ -6,17 +6,17 @@
     transform: translateY(calc(20px + 100%));
   }
   35% {
-    transform: translateY(calc(20px - 10%));
+    transform: translateY(calc(10px - 5%));
   }
   60% {
-    transform: translateY(calc(20px + 3%));
+    transform: translateY(calc(10px + 0%));
   }
   100% {
     transform: translateY(0%);
   }
 }
 
-@keyframes exit {
+@keyframes exitLeft {
   from {
     opacity: 1;
     transform: translateY(0%);
@@ -24,6 +24,28 @@
   to {
     opacity: 0;
     transform: translateX(-100%);
+  }
+}
+
+@keyframes exitRight {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes exitDown {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
   }
 }
 
@@ -56,8 +78,22 @@ ods-toast {
     transform: translateY(0%);
   }
 
+  // animation-duration must match _destroyCurrentToast() setTimeout value(js)
+  $duration: 300;
   &__exitToast {
-    animation-name: exit;
-    animation-duration: 1500ms;
+    &--left {
+      animation-name: exitLeft;
+      animation-duration: #{$duration}ms;
+    }
+
+    &--right {
+      animation-name: exitRight;
+      animation-duration: #{$duration}ms;
+    }
+
+    &--down {
+      animation-name: exitDown;
+      animation-duration: #{$duration}ms;
+    }
   }
 }
