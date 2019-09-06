@@ -58,7 +58,6 @@ export default class Toaster {
         currentToast.classList.add("ods-toast__exitToast--down");
       }
 
-
       setTimeout(() => {
         this.container.removeChild(currentToast);
         this.toasts.shift();

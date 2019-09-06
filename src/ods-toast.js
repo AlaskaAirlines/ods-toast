@@ -52,18 +52,18 @@ class OdsToast extends LitElement {
 
       <div class="ods-toast" aria-role="status" aria-live="assertive"  @click=${this.clickCallback.bind(this)}>
 
-        <div class="primaryContent">
+        <div class="primaryContent" @click=${this.destroyCallback.bind(this)}>
           <div class="primaryContent-container primaryContent-container--icon">
             ${this.checkmarksvg}
           </div>
-          <div class="primaryContent-container primaryContent-container--text" @click=${this.destroyCallback.bind(this)}>
+          <div class="primaryContent-container primaryContent-container--text">
             <div class="primaryContent-title">${this.title}</div>
             <div class="primaryContent-message">${this.message}</div>
             <div class="secondaryContent">
               <slot></slot>
             </div>
           </div>
-          <div class="primaryContent-container primaryContent-container--exit" alt="Close" @click=${this.destroyCallback.bind(this)}>
+          <div class="primaryContent-container primaryContent-container--exit" alt="Close">
             ${this.closesvg}
           </div>
         </div>

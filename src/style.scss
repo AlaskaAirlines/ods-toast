@@ -58,12 +58,6 @@
     }
 
     &--exit {
-      @include breakpoint-narrow {
-        display: block;
-      }
-
-      display: none;
-
       cursor: pointer;
       height: var(--primary-content-container-exit);
       padding-left: var(--ods-toast-padding);
