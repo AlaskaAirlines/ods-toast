@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.4](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.3...v1.0.4) (2019-09-06)
+
+
+### Bug Fixes
+
+* add back X on mobile; increase tap/swipe target ([0575e9b](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/commit/0575e9b))
+
 ## [1.0.3](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.2...v1.0.3) (2019-09-06)
 
 
