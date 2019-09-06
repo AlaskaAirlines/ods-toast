@@ -56,7 +56,7 @@ class OdsToast extends LitElement {
           <div class="primaryContent-container primaryContent-container--icon">
             ${this.checkmarksvg}
           </div>
-          <div class="primaryContent-container primaryContent-container--text">
+          <div class="primaryContent-container primaryContent-container--text" @click=${this.destroyCallback.bind(this)}>
             <div class="primaryContent-title">${this.title}</div>
             <div class="primaryContent-message">${this.message}</div>
             <div class="secondaryContent">

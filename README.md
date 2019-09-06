@@ -24,9 +24,18 @@ Use the bundled [Toaster.js](docs/Toaster.md) tool to display and manage toasts 
 
 Toaster.js is an optional--but highly recommended--utility class containing logic to manage toasts. If there is a compelling reason not to use Toaster.js, please submit an issue with the intent to resolve it.
 
-### Swipt.js
+### Swipe.js
 
 Swipe.js is an independent dependency that will only be loaded when the user's device is detected to support [touchstart](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchstart_event).
+
+### Toaster.css / .scss
+
+The animation of \<ods-toast> is to be installed as an external resource. 
+
+| File | Type | Import path |
+|---|---|---|
+| toaster.css | CSS | @alaskaairux/ods-toast/dist/toaster.css |
+| toaster.scss | Sass | @alaskaairux/ods-toast/dist/toaster.scss |
 
 ### Design Token CSS Custom Property dependency
 
@@ -111,20 +120,21 @@ Loading a dynamic experience with \<ods-toast> requires the use of Toaster.js an
 
 The following example illustrates how you could implement a use case:
 
-```html
-<script type="module">
-  import Swipe from "../src/swipe.js";
-  window.Swipe = Swipe;
-  import Toaster from "../src/toaster";
-  const toastDuration = 7000;
-  const initialToastDelay = 500;
-  const toasts = new Toaster(toastDuration);
-  setTimeout(() => {
-    toasts.add("Status updated");
-    toasts.add("Flight information updated", "Your seat preference has been saved");
-    toasts.add("Status updated", "Your preference has been updated", "<ods-hyperlink class='util_paddingLeft--none' target='_blank' href='#'>ods-hyperlink</ods-hyperlink>");
-  }, initialToastDelay);
-</script>
+```js
+import "@alaskaairux/ods-toast/dist/ods-toast";
+import Swipe from "@alaskaairux/ods-toast/dist/swipe.js";
+import Toaster from "@alaskaairux/ods-toast/dist/toaster";
+import "@alaskaairux/ods-toast/dist/toaster.css";
+
+window.Swipe = Swipe;
+const toastDuration = 7000;
+const initialToastDelay = 2000;
+const toasts = new Toaster(toastDuration);
+setTimeout(() => {
+  toasts.add("Your status has been updated");
+  toasts.add("Flight information updated", "Thank you, Your seat preference has been saved");
+  toasts.add("Wahoo!", "Your preferences have been updated", "Oops? <ods-hyperlink class='util_paddingLeft--none' href='/'>UNDO</ods-hyperlink>");
+}, initialToastDelay);
 ```
 
 Each instance of `toasts.add()` will add the \<ods-toast> custom element to the view.

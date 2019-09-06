@@ -44,6 +44,8 @@
   }
 
   &-container {
+    cursor: pointer;
+
     &--icon {
       color: var(--ods-toast-icon-color);
       padding-right: var(--size-scale-sml);
