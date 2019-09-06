@@ -56,8 +56,14 @@
     }
 
     &--exit {
+      @include breakpoint-narrow {
+        display: block;
+      }
+
+      display: none;
+
       cursor: pointer;
-      height: 1rem;
+      height: var(--primary-content-container-exit);
       padding-left: var(--ods-toast-padding);
 
       // Using !important is to over-ride default inline styles on the SVG

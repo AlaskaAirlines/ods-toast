@@ -63,10 +63,8 @@ class OdsToast extends LitElement {
               <slot></slot>
             </div>
           </div>
-          <div class="primaryContent-container primaryContent-container--exit">
-            <span alt="Close" @click=${this.destroyCallback.bind(this)}>
-              ${this.closesvg}
-            </span>
+          <div class="primaryContent-container primaryContent-container--exit" alt="Close" @click=${this.destroyCallback.bind(this)}>
+            ${this.closesvg}
           </div>
         </div>
       </div>

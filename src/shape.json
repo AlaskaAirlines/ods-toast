@@ -38,6 +38,9 @@
     }
   },
   "primaryContent": {
-    "fullWidth": { "value": "100%" }
+    "fullWidth": { "value": "100%" },
+    "container": {
+      "exit": { "value": "1.5rem" }
+    }
   }
 }
