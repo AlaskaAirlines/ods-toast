@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.2](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.1...v1.0.2) (2019-09-06)
+
+
+### Bug Fixes
+
+* include CSS/SCSS resources, hide X on mobile ([511f8b0](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/commit/511f8b0))
+
 ## [1.0.1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.0...v1.0.1) (2019-09-06)
 
 
