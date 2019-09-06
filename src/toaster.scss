@@ -3,13 +3,13 @@
 
 @keyframes entrance {
   0% {
-    transform: translateY(calc(20px + 100%));
+    transform: translateY(100%);
   }
-  35% {
-    transform: translateY(calc(10px - 5%));
+  20% {
+    transform: translateY(15%)
   }
-  60% {
-    transform: translateY(calc(10px + 0%));
+  30% {
+    transform: translateY(5%);
   }
   100% {
     transform: translateY(0%);
