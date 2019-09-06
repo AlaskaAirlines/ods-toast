@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.5](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.4...v1.0.5) (2019-09-06)
+
+
+### Bug Fixes
+
+* update entrance animation timing ([35f06dc](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/commit/35f06dc))
+
 ## [1.0.4](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.3...v1.0.4) (2019-09-06)
 
 
