@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.6](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.5...v1.0.6) (2019-09-27)
+
+
+### Bug Fixes
+
+* docs and package.json update ([11844b1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/commit/11844b1))
+
 ## [1.0.5](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.4...v1.0.5) (2019-09-06)
 
 
