@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.7](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.6...v1.0.7) (2019-10-18)
+
+
+### Bug Fixes
+
+* add barrel file to simplify import statements ([fd0bd4d](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/commit/fd0bd4d))
+
 ## [1.0.6](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.5...v1.0.6) (2019-09-27)
 
 
