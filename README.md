@@ -18,6 +18,14 @@ All information regarding Project Setup, Technical Details, Tests and informatio
 $ npm i @alaskaairux/ods-toast
 ```
 
+### Define dependency in project component
+
+Define the component dependency within each component that is using the \<ods-toast> component.
+
+```javascript
+import "@alaskaairux/ods-toast";
+```
+
 ### Toaster.js
 
 Use the bundled [Toaster.js](docs/Toaster.md) tool to display and manage toasts in a given interface. This dependency isn't built into the scope of the component in order to allow for consuming projects to bundle it with other project dependencies as needed.
@@ -30,7 +38,7 @@ Swipe.js is an independent dependency that will only be loaded when the user's d
 
 ### Toaster.css / .scss
 
-The animation of \<ods-toast> is to be installed as an external resource. 
+The animation of \<ods-toast> is to be installed as an external resource.
 
 | File | Type | Import path |
 |---|---|---|
@@ -39,7 +47,7 @@ The animation of \<ods-toast> is to be installed as an external resource.
 
 ### Orion Icons dependency
 
-The \<ods-toast> custom element has a dependency on the Orion Icons library. Be sure to read the [Icons tokens install instructions](https://github.com/AlaskaAirlines/OrionIcons#icon-styles) for additional styling support. 
+The \<ods-toast> custom element has a dependency on the Orion Icons library. Be sure to read the [Icons tokens install instructions](https://github.com/AlaskaAirlines/OrionIcons#icon-styles) for additional styling support.
 
 ### Design Token CSS Custom Property dependency
 
@@ -59,7 +67,7 @@ CSS Custom Properties are not supported in older browsers. For this, fallback pr
 
 ## UI Theme Support
 
-The \<ods-toast> custom element will support both the Classic Alaska UI and the new Orion Design UI. 
+The \<ods-toast> custom element will support both the Classic Alaska UI and the new Orion Design UI.
 
 ### Classic UI
 
@@ -120,7 +128,7 @@ The \<ods-toast> element should be used in situations where:
 
 ##### Loading Dynamic Toasts
 
-Loading a dynamic experience with \<ods-toast> requires the use of Toaster.js and Swipe.js and follows a slightly different API then that of the static web component. 
+Loading a dynamic experience with \<ods-toast> requires the use of Toaster.js and Swipe.js and follows a slightly different API then that of the static web component.
 
 The following example illustrates how you could implement a use case:
 
