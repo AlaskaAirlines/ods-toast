@@ -42,7 +42,7 @@
   "devDependencies": {
     "@alaskaairux/ods-hyperlink": "^1.0.7",
     "@alaskaairux/orion-design-tokens": "^2.7.2",
-    "@alaskaairux/orion-icons": "^1.7.0",
+    "@alaskaairux/orion-icons": "^1.8.0",
     "@alaskaairux/orion-web-core-style-sheets": "^2.6.11",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^7.6.0",
@@ -152,6 +152,10 @@
     {
       "name": "Kevin Sonnichsen",
       "email": "Kevin.Sonnichsen@alaskaair.com"
+    },
+    {
+      "name": "Dominic Valenciana",
+      "email": "dominicvalenciana@gmail.com"
     },
     {
       "name": "[author]",
