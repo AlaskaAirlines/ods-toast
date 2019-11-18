@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.7...v1.1.0) (2019-11-18)
+
+
+### Features
+
+* updated Orion icon dep to latest name ([9eb530d](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/commit/9eb530d))
+
 ## [1.0.7](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.6...v1.0.7) (2019-10-18)
 
 
