@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.1.0...v1.1.1) (2019-11-19)
+
+
+### Bug Fixes
+
+* updated icon folder location ([44c4f82](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/commit/44c4f82))
+
 # [1.1.0](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.0.7...v1.1.0) (2019-11-18)
 
 
