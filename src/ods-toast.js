@@ -11,7 +11,7 @@ import "focus-visible/dist/focus-visible.min.js";
 import componentProperties from "./tokens/componentShapeProperties-css.js";
 import styleCss from "./style-css.js";
 import iconProperties from "@alaskaairux/orion-icons/dist/tokens/CSSTokenProperties-css.js";
-import checkmark from "@alaskaairux/orion-icons/dist/icons/classic-checkmark_es6";
+import checkmark from "@alaskaairux/orion-icons/dist/icons/interface/classic-checkmark_es6";
 import close from "@alaskaairux/orion-icons/dist/icons/close_es6";
 
 // build the component class
