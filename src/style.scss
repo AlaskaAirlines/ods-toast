@@ -6,8 +6,13 @@
 // Creates ods-toast CSS UI definition of shape
 
 // Boilerplate Sass imports
-@import "./tokens/tokenVariables";
+// Import Orion Sass variables
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/TokenVariables";
+// Import Orion CSS Properties as Sass file
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/TokenProperties";
+
 @import "./tokens/componentShapeVariables";
+@import "./tokens/componentShapeProperties";
 
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/baselineLTE";
