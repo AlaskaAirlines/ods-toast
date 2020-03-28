@@ -40,10 +40,10 @@
     "focus-visible": "^4.1.5"
   },
   "devDependencies": {
-    "@alaskaairux/ods-hyperlink": "^1.2.0",
-    "@alaskaairux/orion-design-tokens": "^2.7.2",
-    "@alaskaairux/orion-icons": "^1.9.0",
-    "@alaskaairux/orion-web-core-style-sheets": "^2.6.11",
+    "@alaskaairux/ods-hyperlink": "^1.4.3",
+    "@alaskaairux/orion-design-tokens": "^2.10.9",
+    "@alaskaairux/orion-icons": "^2.1.3",
+    "@alaskaairux/orion-web-core-style-sheets": "^2.8.13",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^7.6.0",
     "@polymer/iron-demo-helpers": "^3.1.0",
@@ -68,6 +68,7 @@
     "jsonlint": "^1.6.3",
     "lodash": "^4.17.11",
     "mocha": "^6.1.4",
+    "npm-run-all": "^4.1.5",
     "npm-watch": "^0.6.0",
     "postcss": "^7.0.17",
     "postcss-custom-properties": "^8.0.10",
@@ -89,6 +90,7 @@
   "scripts": {
     "build": "npm run sassRender | npm run cssLint | npm run jsonLint",
     "buildTokens": "node scripts/tokenScript.js",
+    "ciBuild": "npm-run-all buildTokens processSrc processImportsCanonical processImportsVariable stylefluxCanonical stylefluxVariable distTokens sassRender distJS distCSS distSCSS",
     "copyFonts": "copyfiles -f ./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/fonts/*.* ./demo/fonts/",
     "cssLint": "stylelint './src/*.css'",
     "dev": "npm-watch buildTokens | npm-watch sassRender-w",
@@ -102,6 +104,9 @@
     "sassRender-w": "sass-render -w src/**/*.{scss,css}",
     "stylefluxCanonical": "styleflux -o ./altImports/canonical/*.css",
     "stylefluxVariable": "styleflux -o ./altImports/variable/*.css",
+    "processImportsCanonical": "gulp processImportsCanonical",
+    "processImportsVariable": "gulp processImportsVariable",
+    "processSrc": "gulp processSrc",
     "sweep": "rm -rf ./altImports ./temp ./demo/css ./demo/fonts ./dist ./src/tokens | rm ./demo/sass/*token*.scss ./src/*.css ./src/*-css.js",
     "test": "npm run cssLint | npm run jsonLint | yamllint .travis.yml"
   },
