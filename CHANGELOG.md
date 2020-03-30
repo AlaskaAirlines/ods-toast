@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.2](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.1.1...v1.1.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* [#7](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/issues/7) address fallback CSS ([2ff2926](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/commit/2ff2926))
+
 ## [1.1.1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-toast/compare/v1.1.0...v1.1.1) (2019-11-19)
 
 
