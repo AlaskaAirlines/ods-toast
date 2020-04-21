@@ -7,12 +7,15 @@ export default class Swipe {
   }
 
   getTouches(evt) {
-    return evt.touches ||           // browser API
-      evt.originalEvent.touches;    // jQuery
+    // browser API
+    return evt.touches ||
+      // jQuery
+      evt.originalEvent.touches;
   }
 
   handleTouchStart(evt) {
     const firstTouch = this.getTouches(evt)[0];
+
     this.xDown = firstTouch.clientX;
   }
 
@@ -21,8 +24,8 @@ export default class Swipe {
       return;
     }
 
-    let xUp = evt.touches[0].clientX;
-    let xDiff = this.xDown - xUp;
+    const xUp = evt.touches[0].clientX,
+     xDiff = this.xDown - xUp;
 
     if (xDiff < 0) {
       this.destroy(xDiff);
