@@ -61,7 +61,7 @@ CSS Custom Properties are not supported in older browsers. For this, fallback pr
 <ods-toast title="This is the title"></ods-toast>
 ```
 
-## Element \<ods-toast>
+## Element ods-toast
 
 ### Toast use cases
 
@@ -123,7 +123,7 @@ setTimeout(() => {
 }, initialToastDelay);
 ```
 
-Each instance of `toasts.add()` will add the \<ods-toast> custom element to the view.
+Each instance of `toasts.add()` will add the `<ods-toast>` custom element to the view.
 
 > ods-hyperlink example styling; requires @alaskaairux/ods-hyperlink: ^1.0.6
 
