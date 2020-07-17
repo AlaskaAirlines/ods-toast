@@ -1,7 +1,13 @@
 export default class Toaster {
   constructor(displayTime) {
     this.toasts = [];
-    this.displayTime = displayTime || 7000;
+    this.waitTime = 7000;
+    this.nextToast = 300;
+    this.zero = 0;
+    this.one = 1;
+    this.esc = 27;
+    this.return = 13;
+    this.displayTime = displayTime || this.waitTime;
     this.container = document.createElement("div");
     this.container.setAttribute("aria-live", "polite");
     document.body.appendChild(this.container);
@@ -18,22 +24,22 @@ export default class Toaster {
     toast.clickCallback = this.setAutoDismissal.bind(this);
 
     this.toasts.push(toast);
-    if (this.toasts.length === 1) {
+    if (this.toasts.length === this.one) {
       this.showNextToast();
     }
   }
 
   showNextToast() {
-    if (this.toasts.length > 0) {
-      const currentToast = this.toasts[0];
+    if (this.toasts.length > this.zero) {
+      const currentToast = this.toasts[this.zero];
 
       this.container.appendChild(currentToast);
       currentToast.classList.add("ods-toast__showToast");
-      currentToast.tabIndex = 0;
+      currentToast.tabIndex = this.zero;
       currentToast.addEventListener("keydown", (ex) => {
 
         // Supports either the esc or return keys
-        if (ex.keyCode === 27 || ex.keyCode === 13) {
+        if (ex.keyCode === this.esc || ex.keyCode === this.return) {
           this.destroyCurrentToast();
         }
       });
@@ -51,13 +57,13 @@ export default class Toaster {
    // animation-duration(css) must match _destroyCurrentToast() setTimeout value
   destroyCurrentToast(xDiff) {
     if (this.toasts.length) {
-      const currentToast = this.toasts[0];
+      const currentToast = this.toasts[this.zero];
 
       currentToast.classList.remove("ods-toast__showToast");
 
-      if (xDiff < 0) {
+      if (xDiff < this.zero) {
         currentToast.classList.add("ods-toast__exitToast--right");
-      } else if (xDiff > 0) {
+      } else if (xDiff > this.zero) {
         currentToast.classList.add("ods-toast__exitToast--left");
       } else {
         currentToast.classList.add("ods-toast__exitToast--down");
@@ -67,7 +73,7 @@ export default class Toaster {
         this.container.removeChild(currentToast);
         this.toasts.shift();
         this.showNextToast();
-      }, 300);
+      }, this.nextToast);
     }
   }
 

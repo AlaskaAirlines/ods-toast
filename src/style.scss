@@ -18,7 +18,9 @@
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/baselineLTE";
 
 :host(.focus-visible) {
-  .ods-toast {
+  outline: none;
+
+  .primaryContent {
     outline: var(--host-outline);
   }
 }

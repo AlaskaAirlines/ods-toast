@@ -1,6 +1,6 @@
 # toaster.js
 
-`toaster.js` is used to manipulate \<ods-toast>.
+`toaster.js` is used to manipulate `<ods-toast>`.
 
 Toaster, manages multiple toasts instances, and controls the order they display, and their dismissal from the screen.
 
@@ -41,9 +41,9 @@ import Swipe from "@alaskaairux/ods-toast/dist/scripts/swipe";
 
 ## Constructor Parameters:
 
-| Param       | Value type | Description                                                 |
-| ----------- | ---------- | ----------------------------------------------------------- |
-| displayTime | int, null  | display time for each toast component before auto dismissal |
+| Param       | Value type | Description                                                 
+| --- | --- | ---
+| displayTime | int, null  | display time for each toast component before auto dismissal 
 
 ## Create a toaster instance
 

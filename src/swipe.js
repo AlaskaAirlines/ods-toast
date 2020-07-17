@@ -2,6 +2,7 @@ export default class Swipe {
   constructor(toast, destroy) {
     this.destroy = destroy;
     this.xDown = null;
+    this.zero = 0;
     toast.addEventListener("touchstart", this.handleTouchStart.bind(this), false);
     toast.addEventListener("touchmove", this.handleTouchMove.bind(this), false);
   }
@@ -14,7 +15,7 @@ export default class Swipe {
   }
 
   handleTouchStart(evt) {
-    const firstTouch = this.getTouches(evt)[0];
+    const firstTouch = this.getTouches(evt)[this.zero];
 
     this.xDown = firstTouch.clientX;
   }
@@ -24,10 +25,10 @@ export default class Swipe {
       return;
     }
 
-    const xUp = evt.touches[0].clientX,
+    const xUp = evt.touches[this.zero].clientX,
      xDiff = this.xDown - xUp;
 
-    if (xDiff < 0) {
+    if (xDiff < this.zero) {
       this.destroy(xDiff);
     } else {
       this.destroy(xDiff);
