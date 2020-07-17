@@ -18,7 +18,7 @@ $ npm i @alaskaairux/ods-toast
 
 ### Define dependency in project component
 
-Define the component dependency within each component that is using the \<ods-toast> component.
+Define the component dependency within each component that is using the `<ods-toast>` component.
 
 ```javascript
 import "@alaskaairux/ods-toast";
