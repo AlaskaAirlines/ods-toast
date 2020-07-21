@@ -1,4 +1,4 @@
-# ods-toast
+# ods-toast web component
 
 The `<ods-toast>` component is custom functional web component for the purpose of exposing a user feedback interface.
 
