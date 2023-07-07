@@ -79,7 +79,7 @@
     "semantic-release": "^17.2.3",
     "style-dictionary": "^2.10.1",
     "styleflux": "^1.2.0",
-    "stylelint": "^10.1.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-standard": "^18.3.0",
     "wc-sass-render": "^1.2.3",
     "wct-mocha": "^1.1.0",
